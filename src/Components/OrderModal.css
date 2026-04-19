@@ -1,0 +1,276 @@
+.order_modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  z-index: 1002; /* Higher than CartModal */
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.order_modal__container {
+  background-color: white;
+  border: 6px solid #441803;
+  border-radius: 60px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  box-shadow: 7.5px 6px 0px 0px #441803;
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.order_modal__container::-webkit-scrollbar {
+  display: none;
+}
+
+.order_modal__section_group {
+  margin-bottom: 25px;
+}
+
+.order_modal__section_title {
+  font-family: "Beach Day", sans-serif;
+  font-size: 36px;
+  color: #441803;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.order_modal__section_subtitle {
+  font-family: "Wild", sans-serif;
+  font-size: 14px;
+  color: #441803;
+  margin: 0 0 15px 0;
+  text-align: left;
+}
+
+.order_modal__notes_container {
+  width: 100%;
+}
+
+.order_modal__textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 2px solid #441803;
+  box-shadow: 5px 4px 0px 0px #441803;
+
+  border-radius: 24px;
+  padding: 15px 20px;
+  font-family: "Wild", sans-serif;
+  font-size: 16px;
+  color: #441803;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.order_modal__textarea::placeholder {
+  color: #441803;
+  font-style: italic;
+}
+
+.order_modal__payment_list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order_modal__payment_option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px;
+  user-select: none;
+}
+
+.order_modal__payment_option input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.order_modal__radio_custom {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 22px;
+  width: 22px;
+  background-image: url("/Images/HeroSection/uncheck.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.order_modal__payment_option input:checked ~ .order_modal__radio_custom {
+  background-image: url("/Images/HeroSection/check.svg");
+}
+
+.order_modal__payment_label {
+  font-family: "Beach Day", sans-serif;
+  font-size: 20px;
+  color: #441803;
+  text-transform: uppercase;
+  flex: 1;
+  text-align: left;
+}
+
+.order_modal__payment_icon_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.order_modal__payment_icon {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
+.order_modal__placeholder_icon {
+  border: 1px solid #441803;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: "Wild";
+  font-weight: bold;
+  color: #441803;
+}
+
+.order_modal__delivery_time {
+  font-family: "Wild", sans-serif;
+  font-size: 18px;
+  color: #441803;
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+
+.order_modal__summary_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Beach Day", sans-serif;
+  font-size: 20px;
+  color: #441803;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.order_modal__price {
+  color: #fccb10;
+  -webkit-text-stroke: 1.5px #441803;
+  text-shadow: 2px 2px 0px #441803;
+}
+
+.order_modal__price_val {
+  font-size: 34px;
+}
+
+.order_modal__divider {
+  border: none;
+  border-top: 1.5px solid #441803;
+  margin: 15px 0;
+}
+
+.order_modal__due_payment_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.order_modal__due_label {
+  font-family: "Beach Day", sans-serif;
+  font-size: 36px;
+  color: #441803;
+  text-transform: uppercase;
+}
+
+.order_modal__due_amount {
+  font-family: "Beach Day", sans-serif;
+  font-size: 20px;
+  color: #fccb10;
+  -webkit-text-stroke: 1.5px #441803;
+  text-shadow: 2px 2px 0px #441803;
+}
+
+.order_modal__due_amount_val {
+  font-size: 34px;
+}
+
+.order_modal__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.order_modal__place_order_btn {
+  background-color: white;
+  border: 1.5px solid #441803;
+  box-shadow: 7.5px 6px 0px 0px #441803;
+  color: #441803;
+  font-family: "Beach Day", sans-serif;
+  font-size: 24px;
+  letter-spacing: 1.5px;
+  padding: 12px 60px;
+  border-radius: 40px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  width: 100%;
+}
+
+.order_modal__place_order_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 9px 8px 0px 0px #441803;
+}
+
+.order_modal__place_order_btn:active {
+  transform: translateY(2px);
+  box-shadow: 4px 3px 0px 0px #441803;
+}
+
+@media (max-width: 600px) {
+  .order_modal__container {
+    padding: 30px 20px;
+    border-radius: 40px;
+    max-width: 320px;
+  }
+
+  .order_modal__section_title {
+    font-size: 24px;
+  }
+  .order_modal__payment_label {
+    font-size: 16px;
+  }
+  .order_modal__due_label {
+    font-size: 20px;
+  }
+  .order_modal__due_amount_val {
+    font-size: 24px;
+  }
+  .order_modal__place_order_btn {
+    font-size: 20px;
+  }
+}
+@media(max-width:350px)
+{
+
+  .order_modal__container {
+  
+    max-width: 250px;
+  }
+}

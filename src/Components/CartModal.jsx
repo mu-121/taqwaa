@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CartModal.css';
 
-const CartModal = ({ isOpen, cartData, onClose }) => {
+const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
   if (!isOpen || !cartData) return null;
 
   const { product, style, drink } = cartData;
@@ -24,6 +24,12 @@ const CartModal = ({ isOpen, cartData, onClose }) => {
   const handleBackdropClick = (e) => {
     if (e.target.className === 'cart_modal__overlay') {
       onClose();
+    }
+  };
+
+  const handleProceed = () => {
+    if (onProceed) {
+      onProceed({ ...formData, quantity, totalItemPrice });
     }
   };
 
@@ -118,10 +124,7 @@ const CartModal = ({ isOpen, cartData, onClose }) => {
         </div>
 
         <div className="cart_modal__footer">
-          <button className="cart_modal__proceed_btn" onClick={() => {
-            console.log('Final Order:', { ...formData, items: [{ ...cartData, quantity }] });
-            onClose();
-          }}>
+          <button className="cart_modal__proceed_btn" onClick={handleProceed}>
             PROCEED
           </button>
         </div>

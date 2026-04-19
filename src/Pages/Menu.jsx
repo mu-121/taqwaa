@@ -6,6 +6,7 @@ import CategoryFilter from '../Components/CategoryFilter';
 import MenuItemCard from '../Components/MenuItemCard';
 import ProductModal from '../Components/ProductModal';
 import CartModal from '../Components/CartModal';
+import OrderModal from '../Components/OrderModal';
 import Subscribe from '../Components/Subscribe';
 import Footer from '../Components/Footer';
 import { MENU_CATEGORIES, MENU_ITEMS } from '../data/menuData';
@@ -18,6 +19,10 @@ const Menu = () => {
   // Cart modal state
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [cartData, setCartData] = useState(null);
+
+  // Order modal state
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
+  const [orderDetails, setOrderDetails] = useState(null);
 
   const filteredItems = MENU_ITEMS.filter(item => item.category === activeCategory);
 
@@ -33,13 +38,29 @@ const Menu = () => {
 
   const handleProductAdded = (fullCartData) => {
     setCartData(fullCartData);
-    setIsModalOpen(false); // Close first modal
-    setIsCartModalOpen(true); // Open second modal
+    setIsModalOpen(false); // Close customization modal
+    setIsCartModalOpen(true); // Open cart modal
   };
 
   const handleCloseCartModal = () => {
     setIsCartModalOpen(false);
     setCartData(null);
+  };
+
+  const handleProceedToCheckout = (finalOrderData) => {
+    setOrderDetails({ ...cartData, ...finalOrderData });
+    setIsCartModalOpen(false);
+    setIsOrderModalOpen(true);
+  };
+
+  const handleCloseOrderModal = () => {
+    setIsOrderModalOpen(false);
+    setOrderDetails(null);
+  };
+
+  const handleGoBackToCart = () => {
+    setIsOrderModalOpen(false);
+    setIsCartModalOpen(true);
   };
 
   return (
@@ -76,11 +97,20 @@ const Menu = () => {
         onAddToCart={handleProductAdded}
       />
 
-      {/* Second Modal: Cart / Checkout */}
+      {/* Second Modal: Cart */}
       <CartModal 
         isOpen={isCartModalOpen} 
         cartData={cartData} 
         onClose={handleCloseCartModal} 
+        onProceed={handleProceedToCheckout}
+      />
+
+      {/* Third Modal: Order Checkout */}
+      <OrderModal 
+        isOpen={isOrderModalOpen} 
+        orderDetails={orderDetails} 
+        onClose={handleCloseOrderModal} 
+        onBack={handleGoBackToCart}
       />
 
       <Subscribe />

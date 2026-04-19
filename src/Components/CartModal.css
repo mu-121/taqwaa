@@ -18,14 +18,14 @@
   border: 6px solid #441803;
   border-radius: 80px;
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 40px;
-box-shadow: 7.5px 6px 0px 0px #441803;
+  box-shadow: 7.5px 6px 0px 0px #441803;
 
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -45,8 +45,8 @@ box-shadow: 7.5px 6px 0px 0px #441803;
 }
 
 .cart_modal__item_card {
-border: 4px solid #441803;
-box-shadow: 5px 4px 0px 0px #441803;
+  border: 4px solid #441803;
+  box-shadow: 5px 4px 0px 0px #441803;
 
   border-radius: 44px;
   padding: 15px;
@@ -130,7 +130,6 @@ box-shadow: 5px 4px 0px 0px #441803;
   font-size: 18px;
   transition: all 0.2s ease;
   box-shadow: 1.79px 1.43px 0px 0px #441803;
-
 }
 
 .cart_modal__qty_btn:hover {
@@ -165,8 +164,8 @@ box-shadow: 5px 4px 0px 0px #441803;
 }
 
 .cart_modal__input {
-border: 2px solid #441803;
-box-shadow: 5px 4px 0px 0px #441803;
+  border: 2px solid #441803;
+  box-shadow: 5px 4px 0px 0px #441803;
 
   border-radius: 24px;
   padding: 12px 25px;
@@ -206,9 +205,7 @@ box-shadow: 5px 4px 0px 0px #441803;
   -webkit-text-stroke: 1.5px #441803;
   text-shadow: 2px 2px 0px #441803;
 }
-.cart_modal__item_price_val
-{
-
+.cart_modal__item_price_val {
 }
 
 .cart_modal__divider {
@@ -250,8 +247,8 @@ box-shadow: 5px 4px 0px 0px #441803;
 
 .cart_modal__proceed_btn {
   background-color: white;
-border: 1.5px solid #441803;
-box-shadow: 7.5px 6px 0px 0px #441803;
+  border: 1.5px solid #441803;
+  box-shadow: 7.5px 6px 0px 0px #441803;
 
   color: #441803;
   font-family: "Beach Day", sans-serif;
@@ -278,11 +275,31 @@ box-shadow: 7.5px 6px 0px 0px #441803;
     border-radius: 40px;
     max-width: 320px;
   }
+
+  .cart_modal__main_title {
+    font-size: 24px;
+  }
+  .cart_modal__section_title {
+    font-size: 20px;
+  }
+  .cart_modal__item_name {
+    font-size: 16px;
+  }
+  .cart_modal__due_label {
+    font-size: 20px;
+  }
+  .cart_modal__due_amount_val {
+    font-size: 24px;
+  }
+  .cart_modal__proceed_btn {
+    font-size: 20px;
+  }
+}
+@media(max-width:350px)
+{
+
+  .cart_modal__container {
   
-  .cart_modal__main_title { font-size: 24px; }
-  .cart_modal__section_title { font-size: 20px; }
-  .cart_modal__item_name { font-size: 16px; }
-  .cart_modal__due_label { font-size: 20px; }
-  .cart_modal__due_amount_val { font-size: 24px; }
-  .cart_modal__proceed_btn { font-size: 20px; }
+    max-width: 250px;
+  }
 }
