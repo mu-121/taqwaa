@@ -51,7 +51,7 @@ const PersonalInformation = () => {
               <p className="favorite_card__description">{item.description}</p>
               <div className="favorite_card__footer">
                 <button className="favorite_card__add_btn">ADD TO CART</button>
-                <span className="favorite_card__price">Rs. <span style={{fontSize:'45px'}}>{item.price}</span></span>
+                <span className="favorite_card__price">Rs. <span className="deal_card__price_valqq">{item.price}</span></span>
               </div>
             </div>
           </div>

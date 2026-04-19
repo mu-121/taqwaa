@@ -159,6 +159,10 @@
   -webkit-text-stroke: 1.07px #441803;
   text-shadow: 2.94px 2.94px 0px #441803;
 }
+  .deal_card__price_valqq
+  {
+    font-size: 45px;
+  }
 
 /* Responsive Breakpoints */
 @media (max-width: 1200px) {
@@ -195,6 +199,14 @@
   }
   .personal_information__subheading {
     font-size: 18px;
+  }
+  .favorite_card__price
+  {
+    font-size: 24px !important;
+  }
+  .deal_card__price_valqq
+  {
+     font-size: 24px !important;
   }
 }
 
