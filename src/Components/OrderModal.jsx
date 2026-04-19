@@ -10,7 +10,7 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
 
   const PAYMENT_METHODS = [
     { id: 'COD', label: 'CASH ON DELIVERY', icon: '/Images/HeroSection/cod.svg' },
-    { id: 'CARD', label: 'DEBIT/CREDIT CARD', icon: '/Images/HeroSection/mastercard.svg' },
+    { id: 'CARD', label: 'DEBIT/CREDIT CARD', icon: '/Images/HeroSection/debit.svg' },
     { id: 'JAZZCASH', label: 'JAZZCASH', icon: '/Images/HeroSection/jazzcash.svg' },
     { id: 'EASYPAISA', label: 'EASYPAISA', icon: '/Images/HeroSection/easypaisa.svg' }
   ];
@@ -64,11 +64,7 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
                 <span className="order_modal__radio_custom"></span>
                 <span className="order_modal__payment_label">{method.label}</span>
                 <div className="order_modal__payment_icon_wrapper">
-                   {/* Fallback for icons since they might not exist yet */}
-                   {method.id === 'COD' && <div className="order_modal__placeholder_icon cod">COD</div>}
-                   {method.id === 'CARD' && <div className="order_modal__placeholder_icon card">MC</div>}
-                   {method.id === 'JAZZCASH' && <div className="order_modal__placeholder_icon jazz">JC</div>}
-                   {method.id === 'EASYPAISA' && <div className="order_modal__placeholder_icon easy">EP</div>}
+                  <img src={method.icon} alt={method.label} className="order_modal__payment_icon" />
                 </div>
               </label>
             ))}

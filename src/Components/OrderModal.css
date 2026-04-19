@@ -136,19 +136,9 @@
 }
 
 .order_modal__payment_icon {
-  height: 24px;
+  height: 32px;
   width: auto;
   object-fit: contain;
-}
-
-.order_modal__placeholder_icon {
-  border: 1px solid #441803;
-  padding: 2px 5px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-family: "Wild";
-  font-weight: bold;
-  color: #441803;
 }
 
 .order_modal__delivery_time {
