@@ -1,14 +1,17 @@
 .menu_item__card {
   background: white;
   border: 4px solid #441803;
-  border-radius: 44px;
+  border-radius: 60px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 8px 8px 0px 0px #441803;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 5px 4px 0px 0px #441803;
+
   padding: 24px;
-  max-width: 320px;
+  max-width: 400px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -38,23 +41,25 @@
   flex-direction: column;
   gap: 12px;
   text-align: center;
+  align-items: flex-start;
 }
 
 .menu_item__name {
-  font-family: "Beach Day", "Impact", fantasy, sans-serif;
-  font-size: 1.5rem;
+  font-family: "Beach Day";
+  font-size: 30px;
   color: #441803;
   margin: 0;
   letter-spacing: 0.5px;
 }
 
 .menu_item__description {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
+  font-family: Wild;
+  font-size: 14px;
   color: #441803;
   line-height: 1.4;
   margin: 0;
   min-height: 48px;
+  text-align: start;
 }
 
 .menu_item__footer {
@@ -62,20 +67,21 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  width:100%
 }
 
 .menu_item__add_btn {
   background-color: white;
   border: 1.5px solid #441803;
   color: #441803;
-  font-family: "Beach Day", "Impact", fantasy, sans-serif;
+  font-family: "Beach Day";
   font-size: 0.8rem;
   letter-spacing: 0.5px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 800;
+  padding: 10px 30px;
+  border-radius: 100px;
   cursor: pointer;
-  box-shadow: 0 3px 0 #441803;
+box-shadow: 5px 4px 0px 0px #441803;
+
   transition: all 0.1s ease;
 }
 
@@ -92,24 +98,28 @@
 .menu_item__price {
   font-family: "Beach Day", "Impact", fantasy, sans-serif;
   font-size: 1rem;
-  color: #441803;
+color: #FCC802;
+  -webkit-text-stroke: 1.07px #441803;
+  text-shadow: 2.94px 2.94px 0px #441803;
+
 }
 
 .menu_item__price_val {
   font-size: 1.4rem;
   color: #fccb10;
-  -webkit-text-stroke: 1px #441803;
+  -webkit-text-stroke: 1.07px #441803;
+  text-shadow: 2.94px 2.94px 0px #441803;
 }
 
 @media (max-width: 480px) {
-    .menu_item__card {
-        padding: 16px;
-        border-radius: 30px;
-    }
-    .menu_item__name {
-        font-size: 1.2rem;
-    }
-    .menu_item__description {
-        font-size: 0.75rem;
-    }
+  .menu_item__card {
+    padding: 16px;
+    border-radius: 30px;
+  }
+  .menu_item__name {
+    font-size: 1.2rem;
+  }
+  .menu_item__description {
+    font-size: 0.75rem;
+  }
 }
