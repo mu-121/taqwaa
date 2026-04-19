@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ProductModal.css';
 
-const ProductModal = ({ isOpen, product, onClose }) => {
+const ProductModal = ({ isOpen, product, onClose, onAddToCart }) => {
   if (!isOpen || !product) return null;
 
   const [selectedStyle, setSelectedStyle] = useState('SMALL');
@@ -26,10 +26,20 @@ const ProductModal = ({ isOpen, product, onClose }) => {
     }
   };
 
+  const handleAddToCart = () => {
+    const styleObj = STYLES.find(s => s.label === selectedStyle);
+    const drinkObj = DRINKS.find(d => d.label === selectedDrink);
+    onAddToCart({
+      product,
+      style: styleObj,
+      drink: drinkObj
+    });
+  };
+
   return (
     <div className="product_modal__overlay" onClick={handleBackdropClick}>
       <div className="product_modal__container">
-        <button className="product_modal__close" onClick={onClose}>×</button>
+        {/* <button className="product_modal__close" onClick={onClose}>×</button> */}
         
         <div className="product_modal__image_section">
           <img src={product.image} alt={product.name} className="product_modal__image" />
@@ -41,7 +51,7 @@ const ProductModal = ({ isOpen, product, onClose }) => {
 
           <div className="product_modal__price_row">
             <span className="product_modal__label">STARTING PRICE</span>
-            <span className="product_modal__starting_price">Rs. {product.price}</span>
+            <span className="product_modal__starting_price">Rs. <span className="product_modal__starting_price1">{product.price} </span> </span>
           </div>
 
           <div className="product_modal__selection_group">
@@ -57,7 +67,7 @@ const ProductModal = ({ isOpen, product, onClose }) => {
                 />
                 <span className="product_modal__radio_custom"></span>
                 <span className="product_modal__option_label">{style.label}</span>
-                <span className="product_modal__option_price">Rs. {style.price}</span>
+                <span className="product_modal__option_price">Rs.  <span className="product_modal__option_price11">{style.price} </span> </span>
               </label>
             ))}
           </div>
@@ -75,16 +85,13 @@ const ProductModal = ({ isOpen, product, onClose }) => {
                 />
                 <span className="product_modal__radio_custom"></span>
                 <span className="product_modal__option_label">{drink.label}</span>
-                <span className="product_modal__option_price">Rs. {drink.price}</span>
+                <span className="product_modal__option_price">Rs. <span className="product_modal__option_price11">{drink.price} </span> </span>
               </label>
             ))}
           </div>
 
           <div className="product_modal__footer">
-            <button className="product_modal__add_btn" onClick={() => {
-              console.log('Added to cart:', { product, selectedStyle, selectedDrink });
-              onClose();
-            }}>
+            <button className="product_modal__add_btn" onClick={handleAddToCart}>
               ADD TO CART
             </button>
           </div>
