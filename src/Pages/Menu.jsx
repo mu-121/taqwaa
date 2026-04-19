@@ -4,14 +4,27 @@ import Navbar from '../Components/Navbar';
 import MenuHero from '../Components/MenuHero';
 import CategoryFilter from '../Components/CategoryFilter';
 import MenuItemCard from '../Components/MenuItemCard';
+import ProductModal from '../Components/ProductModal';
 import Subscribe from '../Components/Subscribe';
 import Footer from '../Components/Footer';
 import { MENU_CATEGORIES, MENU_ITEMS } from '../data/menuData';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState("PIZZAS");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const filteredItems = MENU_ITEMS.filter(item => item.category === activeCategory);
+
+  const handleOpenModal = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
 
   return (
     <div className="menu_page__container">
@@ -31,16 +44,20 @@ const Menu = () => {
             {filteredItems.map(item => (
               <MenuItemCard 
                 key={item.id}
-                name={item.name}
-                description={item.description}
-                price={item.price}
-                image={item.image}
+                product={item}
+                onAddToCart={handleOpenModal}
               />
             ))}
           </div>
         </div>
       </div>
       
+      <ProductModal 
+        isOpen={isModalOpen} 
+        product={selectedProduct} 
+        onClose={handleCloseModal} 
+      />
+
       <Subscribe />
       <Footer />
     </div>

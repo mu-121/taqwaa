@@ -1,0 +1,253 @@
+.product_modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+}
+
+.product_modal__container {
+  background-color: white;
+  border: 8px solid #441803;
+  border-radius: 60px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  scrollbar-width: thin;
+  scrollbar-color: #441803 white;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.product_modal__container::-webkit-scrollbar {
+  width: 6px;
+}
+.product_modal__container::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 60px;
+}
+.product_modal__container::-webkit-scrollbar-thumb {
+  background-color: #441803;
+  border-radius: 60px;
+}
+
+.product_modal__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #441803;
+  cursor: pointer;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.product_modal__image_section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.product_modal__image {
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+.product_modal__info_section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.product_modal__title {
+  font-family: "Beach Day", sans-serif;
+  font-size: 2.2rem;
+  color: #441803;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.product_modal__description {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: #441803;
+  line-height: 1.4;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.product_modal__price_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.product_modal__label {
+  font-family: "Beach Day", sans-serif;
+  font-size: 1.1rem;
+  color: #441803;
+  text-transform: uppercase;
+}
+
+.product_modal__starting_price {
+  font-family: "Beach Day", sans-serif;
+  font-size: 1.8rem;
+  color: #fccb10;
+  -webkit-text-stroke: 1.5px #441803;
+  text-shadow: 2px 2px 0px #441803;
+}
+
+.product_modal__selection_group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.product_modal__group_title {
+  font-family: "Beach Day", sans-serif;
+  font-size: 1.3rem;
+  color: #441803;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+}
+
+.product_modal__option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px;
+  user-select: none;
+}
+
+.product_modal__option input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.product_modal__radio_custom {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 22px;
+  width: 22px;
+  background-color: white;
+  border: 2px solid #441803;
+  border-radius: 50%;
+}
+
+.product_modal__option:hover input ~ .product_modal__radio_custom {
+  background-color: #fff9e6;
+}
+
+.product_modal__option input:checked ~ .product_modal__radio_custom {
+  background-color: #fccb10;
+}
+
+.product_modal__radio_custom:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.product_modal__option input:checked ~ .product_modal__radio_custom:after {
+  display: block;
+}
+
+.product_modal__option .product_modal__radio_custom:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #441803;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.product_modal__option_label {
+  font-family: "Beach Day", sans-serif;
+  font-size: 1.1rem;
+  color: #441803;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.product_modal__option_price {
+  font-family: "Beach Day", sans-serif;
+  font-size: 1.2rem;
+  color: #fccb10;
+  -webkit-text-stroke: 1px #441803;
+  text-shadow: 1px 1px 0px #441803;
+}
+
+.product_modal__footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.product_modal__add_btn {
+  background-color: white;
+  border: 3px solid #441803;
+  color: #441803;
+  font-family: "Beach Day", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1.5px;
+  padding: 12px 60px;
+  border-radius: 40px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #441803;
+  transition: all 0.1s ease;
+  width: 100%;
+}
+
+.product_modal__add_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #441803;
+}
+
+.product_modal__add_btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #441803;
+}
+
+@media (max-width: 480px) {
+  .product_modal__container {
+    padding: 25px;
+    border-width: 4px;
+    border-radius: 40px;
+  }
+  .product_modal__title {
+    font-size: 1.8rem;
+  }
+  .product_modal__starting_price {
+    font-size: 1.5rem;
+  }
+  .product_modal__add_btn {
+    padding: 10px 40px;
+    font-size: 1.1rem;
+  }
+}

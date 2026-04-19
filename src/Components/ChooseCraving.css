@@ -71,6 +71,7 @@
   }
   .choose_craving__options_container {
     gap: 15px;
+    padding:10px
   }
   .choose_craving__option_label {
     font-size: 16px;
