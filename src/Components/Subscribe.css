@@ -1,0 +1,124 @@
+
+.subscribe__main_container
+{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.subscribe__section {
+  padding: 60px 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.subscribe__container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.subscribe__card {
+  background-image: url("/Images/HeroSection/link.png");
+  background-size: 100% 100%;
+  background-position: center;
+  padding: 110px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.subscribe__heading {
+  font-family: "Beach Day", sans-serif;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 110%;
+  color: #441803;
+  margin: 0;
+  text-transform: uppercase;
+  max-width: 600px;
+}
+
+.subscribe__subheading {
+  font-family: "Wild", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: #441803;
+  margin: 0;
+  max-width: 600px;
+  font-style: italic;
+}
+.craving__shadow__text
+{
+    -webkit-text-stroke: 1.07px #FCC802;
+
+  text-shadow:
+    2.94px 2.94px 0px #441803,
+    0px 4px 0px #441803;
+}
+
+.subscribe__socials {
+  margin-top: 20px;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.social_box {
+  width: 65px;
+  height: 65px;
+  background: white;
+  border: 2px solid #441803;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 3px 4px 0px 0px #441803;
+  transition: all 0.2s ease;
+}
+
+.social_box:hover {
+  transform: translateY(-3px);
+  box-shadow: 5px 6px 0px 0px #441803;
+  background-color: #fccb10;
+}
+
+.social_box svg {
+  transition: transform 0.2s ease;
+}
+
+.social_box:hover svg {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .subscribe__heading {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .subscribe__section {
+    padding: 10px 20px;
+  }
+  .subscribe__card {
+    border-radius: 40px;
+    padding: 60px 20px;
+  }
+  .subscribe__heading {
+    font-size: 32px;
+  }
+  .subscribe__subheading {
+    font-size: 18px;
+  }
+  .social_box {
+    width: 55px;
+    height: 55px;
+  }
+}

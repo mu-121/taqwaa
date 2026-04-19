@@ -1,0 +1,81 @@
+.choose_craving__main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 55px;
+}
+.choose_craving__heading {
+  font-family: "Beach Day" !important;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 100%;
+  text-align: center;
+  color: #441803;
+  margin: 0px !important;
+
+}
+.choose_craving__options_container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.choose_craving__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.choose_craving__option_label {
+  font-family: Beach day;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0px !important;
+  color: #441803;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1000px) {
+  .choose_craving__heading {
+    font-size: 54px;
+  }
+  .choose_craving__options_container {
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .choose_craving__main_container {
+    gap: 40px;
+  }
+  .choose_craving__heading {
+    font-size: 42px;
+  }
+  .choose_craving__options_container {
+    gap: 20px;
+  }
+  .choose_craving__option img {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .choose_craving__heading {
+    font-size: 32px;
+  }
+  .choose_craving__options_container {
+    gap: 15px;
+  }
+  .choose_craving__option_label {
+    font-size: 16px;
+  }
+  .choose_craving__option img {
+    height: 70px;
+  }
+}

@@ -1,0 +1,191 @@
+.footer__section {
+  position: relative;
+  width: 100%;
+  background-image: url("/Images/HeroSection/Hero Section1.png");
+  background-size: contain;
+  background-position: center;
+  padding: 120px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+}
+
+/* Checkerboard Strip */
+.footer__checkerboard {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background-color: #fccb10;
+  background-image: linear-gradient(45deg, white 25%, transparent 25%),
+    linear-gradient(-45deg, white 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, white 75%),
+    linear-gradient(-45deg, transparent 75%, white 75%);
+  background-size: 36px 36px;
+  background-position:
+    0 0,
+    0 18px,
+    18px -18px,
+    -18px 0px;
+  z-index: 10;
+}
+
+.footer__checkerboard.top {
+  top: 0;
+}
+
+.footer__content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer__illustration {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+}
+
+.footer__heading {
+  font-family: "Beach Day", sans-serif;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 110%;
+  color: #441803;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  max-width: 718px;
+  -webkit-text-stroke: 1.07px #FCC802;
+
+  text-shadow:
+    2.94px 2.94px 0px #441803,
+    0px 4px 0px #441803;
+}
+
+.footer__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.footer__pill {
+  background: white;
+  border: 4px solid #441803;
+  color: #441803;
+  font-family: "Beach Day", sans-serif;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 4px 6px 0px 0px #441803;
+  transition: all 0.2s ease;
+}
+
+.contact_pill {
+  padding: 15px 40px;
+  border-radius: 100px;
+  font-size: 20px;
+}
+
+.address_pill {
+  padding: 15px 45px;
+  border-radius: 100px;
+  font-size: 20px;
+  max-width: 90%;
+}
+
+.footer__pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 7px 9px 0px 0px #441803;
+}
+
+.footer__watermark {
+  position: absolute;
+  bottom: 63px;
+  width: 100%;
+  text-align: center;
+
+  font-family: "Beach Day", sans-serif;
+  font-size: 180px;
+  margin: 0;
+  padding: 0;
+
+  opacity: 0.15;
+  white-space: nowrap;
+  pointer-events: auto;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out, color 0.3s ease-in-out;
+
+  text-transform: uppercase;
+  letter-spacing: 5px;
+
+  /* Stroke + text shadow */
+  -webkit-text-stroke: 1.07px #FCC802;
+  text-shadow:
+    2.94px 2.94px 0px #441803,
+    0px 4px 0px #441803;
+
+  /* NEW styles added */
+  border: 9.88px solid #FCC8021A;
+  box-shadow: 0px 13.18px 0px 0px #4418031A;
+  backdrop-filter: blur(644px);
+  color: transparent;
+}
+
+.footer__watermark:hover {
+  opacity: 1;
+  color: #441803;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer__heading {
+    font-size: 42px;
+  }
+
+  .footer__watermark {
+    font-size: 120px;
+  }
+    .footer__section {
+    background: #FCC802 !important;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .footer__section {
+    padding: 100px 20px;
+  }
+
+  .footer__heading {
+    font-size: 32px;
+  }
+
+  .contact_pill {
+    font-size: 18px;
+    padding: 12px 30px;
+  }
+
+  .address_pill {
+    font-size: 14px;
+    padding: 12px 25px;
+    width:70% !important
+  }
+
+  .footer__watermark {
+    font-size: 50px;
+  }
+}

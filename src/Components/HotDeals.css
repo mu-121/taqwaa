@@ -1,0 +1,267 @@
+.hot_deals__section_container {
+  position: relative;
+  background-image: url("/Images/HeroSection/Hero Section1.png");
+  background-size: 100% 100%;
+  background-position: center;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  overflow: hidden;
+}
+
+/* ============================================
+   CHECKERBOARD STRIPS
+   ============================================ */
+.hot_deals__checkerboard {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background-color: #fccb10;
+  background-image: linear-gradient(45deg, white 25%, transparent 25%),
+    linear-gradient(-45deg, white 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, white 75%),
+    linear-gradient(-45deg, transparent 75%, white 75%);
+  background-size: 36px 36px;
+  background-position:
+    0 0,
+    0 18px,
+    18px -18px,
+    -18px 0px;
+  z-index: 10;
+}
+
+.hot_deals__checkerboard.top {
+  top: 0;
+}
+
+.hot_deals__checkerboard.bottom {
+  bottom: 0;
+}
+
+/* ============================================
+   HEADER STYLING
+   ============================================ */
+.hot_deals__content_wrapper {
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  z-index: 5;
+}
+
+.hot_deals__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+
+.hot_deals__heading {
+  font-family: "Beach Day", sans-serif;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 100%;
+  color: #441803;
+  margin: 0 !important;
+  text-transform: uppercase;
+}
+
+.hot_deals__subheading {
+  font-family: "Wild", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: #441803;
+  margin: 0 !important;
+  max-width: 800px;
+}
+
+/* ============================================
+   GRID STYLING
+   ============================================ */
+.hot_deals__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   DEAL CARD STYLING
+   ============================================ */
+.deal_card {
+  background: white;
+  border: 4px solid #441803;
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 510px;
+  box-shadow: 5px 6px 0px 0px #441803;
+  transition: transform 0.2s ease;
+}
+
+.deal_card:hover {
+  transform: translateY(-5px);
+}
+
+.deal_card__info_section {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  z-index: 2;
+  width:100%;
+  align-items: flex-start;
+}
+
+.deal_card__title {
+  font-family: "Beach Day", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  color: #441803;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.deal_card__details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.deal_card__details li {
+  font-family: "Wild", sans-serif;
+  font-size: 14px;
+  color: #441803;
+  opacity: 0.9;
+  position: relative;
+  padding-left: 15px;
+}
+
+.deal_card__details li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #441803;
+}
+
+.deal_card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-top: auto; */
+  width: 100%;
+}
+
+.deal_card__add_btn {
+  padding: 12px 30px;
+  border-radius: 100px;
+  background: #ffffff;
+  border: 2px solid #441803;
+  box-shadow: 3px 2px 0px 0px #441803;
+  font-family: "Beach Day", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #441803;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deal_card__add_btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 4.5px 3.5px 0px 0px #441803;
+}
+
+.deal_card__price {
+  font-family: "Beach Day", sans-serif;
+  font-size: 30px;
+  color: #fcc802;
+  font-weight: 400;
+  -webkit-text-stroke: 1.07px #441803;
+  text-shadow: 2.94px 2.94px 0px #441803;
+  margin-right: 60px;
+}
+
+.deal_card__price_val {
+  font-size: 56px;
+}
+
+/* ============================================
+   CARD IMAGE SECTION
+   ============================================ */
+.deal_card__image_section {
+  height: 180px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 0px;
+  overflow: visible;
+  margin-top: -30px;
+}
+
+.deal_card__image {
+  /* width: 260px; */
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  /* bottom: -20px; */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+  
+}
+
+.deal_card__image.left {
+  left: 50%;
+  margin-left: -309px;
+  z-index: 1;
+  
+}
+
+.deal_card__image.right {
+  left: 50%;
+  z-index: 2;
+}
+
+/* .deal_card:hover .deal_card__image.left {
+  transform: rotate(-12deg) scale(1.05);
+  margin-left: -230px;
+}
+
+.deal_card:hover .deal_card__image.right {
+  transform: rotate(12deg) scale(1.05);
+  margin-left: -30px;
+} */
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hot_deals__grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+  .hot_deals__section_container
+  {
+    background: #fcc802 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hot_deals__content_wrapper {
+    padding: 0 20px;
+  }
+  .hot_deals__heading {
+    font-size: 42px;
+  }
+}
