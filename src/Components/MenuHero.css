@@ -33,18 +33,19 @@
   letter-spacing: 2px;
 
   /* Border effect */
-  -webkit-text-stroke: 7.63px #FCC802;
+  -webkit-text-stroke: 4px #FCC802;
 
   /* Box-shadow → text-shadow equivalent */
   text-shadow: 0px 8px 0px #441803;
 }
 
 .menu_hero__subtitle {
-  font-family: 'Outfit', sans-serif;
+  font-family: Wild;
   font-weight: 500;
   color: #441803;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 20px;
+  padding-top:32px
 }
 
 .menu_hero__download_btn {
