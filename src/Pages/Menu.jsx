@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Menu.css';
 import Navbar from '../Components/Navbar';
 import MenuHero from '../Components/MenuHero';
@@ -9,10 +9,17 @@ import CartModal from '../Components/CartModal';
 import OrderModal from '../Components/OrderModal';
 import Subscribe from '../Components/Subscribe';
 import Footer from '../Components/Footer';
-import { MENU_CATEGORIES, MENU_ITEMS } from '../data/menuData';
+import { fetchProducts, fetchCategories } from '../services/api';
+import { useLocation } from 'react-router-dom';
 
 const Menu = () => {
+  const location = useLocation();
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
   const [activeCategory, setActiveCategory] = useState("PIZZAS");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   
@@ -24,11 +31,62 @@ const Menu = () => {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [orderDetails, setOrderDetails] = useState(null);
 
-  const filteredItems = MENU_ITEMS.filter(item => item.category === activeCategory);
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        const [fetchedCategories, fetchedProducts] = await Promise.all([
+          fetchCategories(),
+          fetchProducts()
+        ]);
+        setCategories(fetchedCategories.map(c => c.name));
+        setProducts(fetchedProducts);
+        
+        // Handle category from URL search params
+        const queryParams = new URLSearchParams(location.search);
+        const categoryParam = queryParams.get('category');
+        
+        if (categoryParam && fetchedCategories.some(c => c.name === categoryParam)) {
+          setActiveCategory(categoryParam);
+        } else if (fetchedCategories.length > 0) {
+          setActiveCategory(fetchedCategories[0].name);
+        }
+
+        // Handle direct product opening from Favorites
+        const productId = queryParams.get('productId');
+        if (productId) {
+          const directProduct = fetchedProducts.find(p => p._id === productId || p.id === productId);
+          if (directProduct) {
+            handleOpenModal(directProduct);
+            // Optionally set active category to match the product
+            setActiveCategory(directProduct.category);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch menu data:", err);
+        setError("Could not load menu. Please make sure the server is running.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+  }, []);
+
+  const filteredItems = products.filter(item => item.category === activeCategory);
 
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
+  };
+
+  const handleToggleFavoriteInState = (productId) => {
+    setProducts(prevProducts => 
+      prevProducts.map(p => 
+        (p._id === productId || p.id === productId) 
+          ? { ...p, isFavorite: !p.isFavorite } 
+          : p
+      )
+    );
   };
 
   const handleCloseModal = () => {
@@ -71,22 +129,29 @@ const Menu = () => {
       
       <div className="menu_page__content">
         <CategoryFilter 
-          categories={MENU_CATEGORIES} 
+          categories={categories} 
           activeCategory={activeCategory} 
           onCategoryChange={setActiveCategory} 
         />
         
-        <div className="menu_page__grid_container">
-          <div className="menu_page__grid">
-            {filteredItems.map(item => (
-              <MenuItemCard 
-                key={item.id}
-                product={item}
-                onAddToCart={handleOpenModal}
-              />
-            ))}
+        {loading ? (
+          <div className="menu_page__loading">Loading Delicious Food...</div>
+        ) : error ? (
+          <div className="menu_page__error">{error}</div>
+        ) : (
+          <div className="menu_page__grid_container">
+            <div className="menu_page__grid">
+              {filteredItems.map(item => (
+                <MenuItemCard 
+                  key={item._id || item.id}
+                  product={item}
+                  onAddToCart={handleOpenModal}
+                  onToggleFavorite={handleToggleFavoriteInState}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
       
       {/* First Modal: Customization */}

@@ -1,0 +1,49 @@
+const express = require('express');
+const router = express.Router();
+const Order = require('../models/Order');
+
+// @desc    Create new order
+// @route   POST /api/orders
+router.post('/', async (req, res) => {
+  try {
+    const { 
+      customerInfo, 
+      items, 
+      totalAmount, 
+      paymentMethod, 
+      notes 
+    } = req.body;
+
+    if (!items || items.length === 0) {
+      res.status(400).json({ message: 'No order items' });
+      return;
+    }
+
+    const order = new Order({
+      customerInfo,
+      items,
+      totalAmount,
+      paymentMethod,
+      notes,
+    });
+
+    const createdOrder = await order.save();
+
+    res.status(201).json(createdOrder);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// @desc    Get all orders (for admin)
+// @route   GET /api/orders
+router.get('/', async (req, res) => {
+    try {
+      const orders = await Order.find({}).sort({ createdAt: -1 });
+      res.json(orders);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+module.exports = router;

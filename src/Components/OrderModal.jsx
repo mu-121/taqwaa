@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import './OrderModal.css';
+import { placeOrder } from '../services/api';
 
 const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
-  if (!isOpen || !orderDetails) return null;
-
-  const { product, quantity, totalItemPrice } = orderDetails;
+  // ✅ ALL hooks first
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState('CASH ON DELIVERY');
   const [notes, setNotes] = useState('');
+
+  // ✅ AFTER hooks → safe early return
+  if (!isOpen || !orderDetails) return null;
+
+  const { product, quantity, totalItemPrice, style, drink, name, phone, address } = orderDetails;
 
   const PAYMENT_METHODS = [
     { id: 'COD', label: 'CASH ON DELIVERY', icon: '/Images/HeroSection/cod.svg' },
@@ -21,14 +26,36 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
     }
   };
 
-  const handlePlaceOrder = () => {
-    console.log('Final Order Submitted:', {
-      ...orderDetails,
-      paymentMethod: selectedPayment,
-      notes: notes
-    });
-    alert('Order Placed Successfully!');
-    onClose();
+  const handlePlaceOrder = async () => {
+    try {
+      setIsSubmitting(true);
+
+      const payload = {
+        customerInfo: { name, phone, address },
+        items: [
+          {
+            productId: product._id || product.id,
+            name: product.name,
+            quantity,
+            price: totalItemPrice / quantity,
+            style: style?.label,
+            drink: drink?.name
+          }
+        ],
+        totalAmount: totalItemPrice,
+        paymentMethod: selectedPayment,
+        notes
+      };
+
+      await placeOrder(payload);
+      alert('Order Placed Successfully!');
+      onClose();
+    } catch (error) {
+      console.error(error);
+      alert('Failed to place order.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -91,8 +118,12 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
         </div>
 
         <div className="order_modal__footer">
-          <button className="order_modal__place_order_btn" onClick={handlePlaceOrder}>
-            PLACE ORDER
+          <button 
+            className="order_modal__place_order_btn" 
+            onClick={handlePlaceOrder}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'PLACING...' : 'PLACE ORDER'}
           </button>
         </div>
       </div>

@@ -1,17 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ChooseCraving.css";
-
-/* ✅ DATA DEFINED BEFORE COMPONENT */
-const CRAVING_OPTIONS = [
-  { img: "starter", label: "Starters" },
-  { img: "pizza", label: "Pizzas" },
-  { img: "burger", label: "Burgers" },
-  { img: "sandwich", label: "Sandwiches" },
-  { img: "pasta", label: "Pastas" },
-  { img: "sides", label: "Sides" },
-];
+import { fetchCategories } from "../services/api";
+import { Link } from "react-router-dom";
 
 const ChooseCraving = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const data = await fetchCategories();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    getCategories();
+  }, []);
+
+  // Map backend names to image filenames
+  const getCategoryImage = (name) => {
+    const map = {
+      "STARTERS": "starter",
+      "PIZZAS": "pizza",
+      "BURGERS": "burger",
+      "SANDWICHES": "sandwich",
+      "PLATTER": "pasta", // Fallback image
+      "SIDES": "sides"
+    };
+    return map[name] || "pizza";
+  };
+
   return (
     <div className="choose_craving__main_container">
       <p className="choose_craving__heading">
@@ -19,14 +38,19 @@ const ChooseCraving = () => {
       </p>
 
       <div className="choose_craving__options_container">
-        {CRAVING_OPTIONS.map((item) => (
-          <div className="choose_craving__option" key={item.label}>
+        {categories.map((cat) => (
+          <Link 
+            to={`/menu?category=${cat.name}`} 
+            className="choose_craving__option" 
+            key={cat._id}
+            style={{ textDecoration: 'none' }}
+          >
             <img
-              src={`/Images/Craving/${item.img}.svg`}
-              alt={item.label}
+              src={`/Images/Craving/${getCategoryImage(cat.name)}.svg`}
+              alt={cat.name}
             />
-            <p className="choose_craving__option_label">{item.label}</p>
-          </div>
+            <p className="choose_craving__option_label">{cat.name.charAt(0) + cat.name.slice(1).toLowerCase()}</p>
+          </Link>
         ))}
       </div>
     </div>

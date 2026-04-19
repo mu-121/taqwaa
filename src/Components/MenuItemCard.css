@@ -28,6 +28,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  position: relative; /* For the heart button */
 }
 
 .menu_item__image {
@@ -35,6 +36,49 @@
   max-height: 100%;
   object-fit: contain;
 }
+
+.menu_item__favorite_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #441803;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px 0px #441803;
+  transition: all 0.2s ease;
+  padding: 0;
+  z-index: 2;
+}
+
+.menu_item__favorite_btn:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 4px 0px 0px #441803;
+}
+
+.menu_item__favorite_btn:active {
+  transform: scale(0.9);
+}
+
+.menu_item__heart_icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #441803;
+  stroke-width: 2;
+  transition: all 0.2s ease;
+}
+
+.menu_item__favorite_btn.active .menu_item__heart_icon {
+  fill: #e91e63;
+  stroke: #e91e63;
+}
+
 
 .menu_item__info {
   display: flex;

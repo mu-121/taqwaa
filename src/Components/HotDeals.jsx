@@ -1,59 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./HotDeals.css";
-
-const DEALS_DATA = [
-  {
-    id: 1,
-    name: "CHEESE LOVERS PAIR",
-    details: [
-      "1 Medium Cheese Avalanche",
-      "1 Medium Truffle Temptation",
-    ],
-    price: "1,400",
-    image: "/Images/Craving/p11.svg",
-    image1: "/Images/Craving/p22.svg",
-  },
-  {
-    id: 2,
-    name: "CHEESE LOVERS PAIR",
-    details: [
-      "1 Medium Cheese Avalanche",
-      "1 Medium Truffle Temptation",
-    ],
-    price: "1,400",
-    image: "/Images/Craving/p11.svg",
-    image1: "/Images/Craving/p22.svg",
-  },
-  {
-    id: 3,
-    name: "CHEESE LOVERS PAIR",
-    details: [
-      "1 Medium Cheese Avalanche",
-      "1 Medium Truffle Temptation",
-    ],
-    price: "1,400",
-    image: "/Images/Craving/p11.svg",
-    image1: "/Images/Craving/p22.svg",
-  },
-  {
-    id: 4,
-    name: "CHEESE LOVERS PAIR",
-    details: [
-      "1 Medium Cheese Avalanche",
-      "1 Medium Truffle Temptation",
-    ],
-    price: "1,400",
-    image: "/Images/Craving/p11.svg",
-    image1: "/Images/Craving/p22.svg",
-  },
-];
+import { fetchProducts } from "../services/api";
 
 const HotDeals = () => {
+  const [deals, setDeals] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadDeals = async () => {
+      try {
+        const products = await fetchProducts();
+        const hotDeals = products.filter(p => p.category === "HOT DEALS");
+        setDeals(hotDeals);
+      } catch (err) {
+        console.error("Error fetching deals:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadDeals();
+  }, []);
+
+  if (loading) return null; // Or a subtle loading indicator
+  if (deals.length === 0) return null;
+
   return (
     <div className="hot_deals__section_container">
-      {/* Top Checkerboard Strip */}
-    
-
       <div className="hot_deals__content_wrapper">
         <div className="hot_deals__header">
           <h2 className="hot_deals__heading">HOT CRAVING, HOTTER DEALS</h2>
@@ -63,12 +35,12 @@ const HotDeals = () => {
         </div>
 
         <div className="hot_deals__grid">
-          {DEALS_DATA.map((deal) => (
-            <div key={deal.id} className="deal_card">
+          {deals.map((deal) => (
+            <div key={deal._id} className="deal_card">
               <div className="deal_card__info_section">
                 <h3 className="deal_card__title">{deal.name}</h3>
                 <ul className="deal_card__details">
-                  {deal.details.map((detail, index) => (
+                  {deal.details && deal.details.map((detail, index) => (
                     <li key={index}>{detail}</li>
                   ))}
                 </ul>
@@ -87,9 +59,6 @@ const HotDeals = () => {
           ))}
         </div>
       </div>
-
-      {/* Bottom Checkerboard Strip */}
-    
     </div>
   );
 };
