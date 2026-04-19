@@ -1,0 +1,115 @@
+.menu_item__card {
+  background: white;
+  border: 4px solid #441803;
+  border-radius: 44px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 8px 8px 0px 0px #441803;
+  padding: 24px;
+  max-width: 320px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.menu_item__card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px 0px #441803;
+}
+
+.menu_item__image_container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.menu_item__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.menu_item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.menu_item__name {
+  font-family: "Beach Day", "Impact", fantasy, sans-serif;
+  font-size: 1.5rem;
+  color: #441803;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.menu_item__description {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  color: #441803;
+  line-height: 1.4;
+  margin: 0;
+  min-height: 48px;
+}
+
+.menu_item__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.menu_item__add_btn {
+  background-color: white;
+  border: 1.5px solid #441803;
+  color: #441803;
+  font-family: "Beach Day", "Impact", fantasy, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #441803;
+  transition: all 0.1s ease;
+}
+
+.menu_item__add_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #441803;
+}
+
+.menu_item__add_btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #441803;
+}
+
+.menu_item__price {
+  font-family: "Beach Day", "Impact", fantasy, sans-serif;
+  font-size: 1rem;
+  color: #441803;
+}
+
+.menu_item__price_val {
+  font-size: 1.4rem;
+  color: #fccb10;
+  -webkit-text-stroke: 1px #441803;
+}
+
+@media (max-width: 480px) {
+    .menu_item__card {
+        padding: 16px;
+        border-radius: 30px;
+    }
+    .menu_item__name {
+        font-size: 1.2rem;
+    }
+    .menu_item__description {
+        font-size: 0.75rem;
+    }
+}

@@ -264,4 +264,12 @@
   .hot_deals__heading {
     font-size: 42px;
   }
+  .deal_card__price_val
+  {
+    font-size:30px
+  }
+  .deal_card__title
+  {
+    font-size: 26px;
+  }
 }

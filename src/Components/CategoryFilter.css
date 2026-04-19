@@ -1,0 +1,57 @@
+.category_filter__container {
+  padding: 40px 20px 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.category_filter__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  max-width: 1000px;
+}
+
+.category_filter__btn {
+  background-color: white;
+  border: 2px solid #441803;
+  color: #441803;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: "Beach Day", "Impact", fantasy, sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 #441803;
+}
+
+.category_filter__btn:hover {
+  background-color: #fff9e6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #441803;
+}
+
+.category_filter__btn.active {
+  background-color: #fccb10;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #441803;
+}
+
+.category_filter__btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #441803;
+}
+
+@media (max-width: 600px) {
+  .category_filter__wrapper {
+    gap: 8px;
+  }
+  .category_filter__btn {
+    padding: 6px 15px;
+    font-size: 0.8rem;
+  }
+}

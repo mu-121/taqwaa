@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Main.css';
+import { Link } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import ChooseCraving from '../Components/ChooseCraving';
 import PersonalInformation from '../Components/PersonalInformation';
@@ -124,7 +125,9 @@ const Main = () => {
 
       {/* CTA Button */}
       <div className="action-container" style={{ opacity: fadeOpacityFast, transform: `translateY(${progress * 50}px)` }}>
-        <button className="explore-btn">EXPLORE MENU</button>
+        <Link to="/menu" className="explore-btn" style={{ textDecoration: 'none', display: 'inline-block' }}>
+          EXPLORE MENU
+        </Link>
       </div>
 
     </div>

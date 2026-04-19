@@ -168,6 +168,7 @@
 @media (max-width: 768px) {
   .footer__section {
     padding: 100px 20px;
+    width:unset !important;
   }
 
   .footer__heading {
@@ -180,7 +181,7 @@
   }
 
   .address_pill {
-    font-size: 14px;
+    font-size: 12px;
     padding: 12px 25px;
     width:70% !important
   }
