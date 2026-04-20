@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
+const { sendOrderConfirmationEmail } = require('../utils/emailService');
 
 // @desc    Create new order
 // @route   POST /api/orders
 router.post('/', async (req, res) => {
   try {
+    console.log('Incoming Order Payload:', JSON.stringify(req.body, null, 2));
     const { 
       customerInfo, 
       items, 
@@ -28,6 +30,9 @@ router.post('/', async (req, res) => {
     });
 
     const createdOrder = await order.save();
+
+    // Send confirmation email asynchronously
+    sendOrderConfirmationEmail(createdOrder);
 
     res.status(201).json(createdOrder);
   } catch (error) {

@@ -11,7 +11,7 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
   // ✅ AFTER hooks → safe early return
   if (!isOpen || !orderDetails) return null;
 
-  const { product, quantity, totalItemPrice, style, drink, name, phone, address } = orderDetails;
+  const { product, quantity, totalItemPrice, style, drink, name, email, phone, address } = orderDetails;
 
   const PAYMENT_METHODS = [
     { id: 'COD', label: 'CASH ON DELIVERY', icon: '/Images/HeroSection/cod.svg' },
@@ -31,7 +31,7 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
       setIsSubmitting(true);
 
       const payload = {
-        customerInfo: { name, phone, address },
+        customerInfo: { name, email, phone, address },
         items: [
           {
             productId: product._id || product.id,

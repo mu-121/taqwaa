@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="footer__content">
         <div className="footer__logo_wrapper">
           {/* Using logo.svg as placeholder for the food illustration */}
-          <img src="/Images/Navbar/logo1.svg" alt="Taqwa Foods" className="footer__illustration" />
+          <img src="/Images/Navbar/logo1.svg" alt="Taqwa-foods" className="footer__illustration" />
         </div>
 
         <h2 className="footer__heading">READY TO GRAB THE MEAL OF HAPPINESS?</h2>
@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
 
       {/* Large Background Watermark Text */}
-      <div className="footer__watermark">TAQWA FOODS</div>
+      <div className="footer__watermark">Taqwa-foods</div>
     </footer>
   );
 };

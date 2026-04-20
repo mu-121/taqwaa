@@ -8,6 +8,7 @@ const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
   const [quantity, setQuantity] = useState(1);
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     address: ''
   });
@@ -83,6 +84,14 @@ const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
               placeholder="Your Name" 
               className="cart_modal__input"
               value={formData.name}
+              onChange={handleInputChange}
+            />
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Your Email" 
+              className="cart_modal__input"
+              value={formData.email}
               onChange={handleInputChange}
             />
             <input 

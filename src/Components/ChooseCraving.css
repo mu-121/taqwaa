@@ -19,6 +19,8 @@
   display: flex;
   gap: 40px;
   align-items: center;
+  max-width: 925px;
+  flex-wrap: wrap;
 }
 .choose_craving__option {
   display: flex;
