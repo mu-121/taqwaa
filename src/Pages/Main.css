@@ -508,4 +508,8 @@
   .main-container1111 {
     gap: 40px;
   }
+  .hero-sticky-content
+  {
+    height: unset !important;
+  }
 }
