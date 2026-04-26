@@ -43,20 +43,19 @@ const Main = () => {
             className="hero-container"
             style={{ height: '100%', paddingBottom: '0' }}
           >
-
             <Navbar />
 
             {/* Left & Right fade gradients */}
             <div className="fade-gradient-left" />
             <div className="fade-gradient-right" />
 
-            {/* Huge background text — two rows, animate in opposite directions */}
+            {/* Huge background text — two rows */}
             <div className="bg-text-container" aria-hidden="true">
               <div style={{ transform: `translateX(${progress * 250}px)` }}>
-                <h1 className="bg-text row-right">CRAVE LOVE CRAVE LOVE CRAVE</h1>
+                <h1 className="bg-text row-right">CRAVE IT LOVE IT CRAVE IT LOVE IT</h1>
               </div>
               <div style={{ transform: `translateX(${-progress * 250}px)` }}>
-                <h1 className="bg-text row-left">CRAVE LOVE CRAVE LOVE CRAVE</h1>
+                <h1 className="bg-text row-left">LOVE IT CRAVE IT LOVE IT CRAVE IT</h1>
               </div>
             </div>
 
@@ -79,26 +78,17 @@ const Main = () => {
             />
 
             {/* Pizza + hand scene */}
-            <div className="pizza-scene" style={{ marginBottom: '60px' }}>
-              {/* The component with the hole (Pizza Image) - Static */}
-              <div
-                style={{
-                  position: 'absolute',
-                  zIndex: 5,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
+            <div className="pizza-scene">
+              {/* Static Pizza Image with entrance animation */}
+              <div className="pizza-wrapper">
                 <img
                   src="/Images/HeroSection/Pizza Image.png"
                   alt="Pizza Base"
                   className="main-pizza"
-                  style={{ height: '500px', objectFit: 'contain' }}
                 />
               </div>
 
-              {/* The component with the hand and slice (Hand Image) - Moves */}
+              {/* Hand Image wrapper for scroll movement */}
               <div
                 style={{
                   transform: `translateX(${progress * 120}vw)`,
@@ -106,23 +96,20 @@ const Main = () => {
                   zIndex: 10,
                   display: 'flex',
                   justifyContent: 'center',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  position: 'absolute'
                 }}
               >
-                <div className="hand-wrapper" style={{ position: 'relative', flexShrink: 0, width: 'auto' }}>
+                <div className="hand-wrapper">
                   <img
                     src="/Images/HeroSection/Hand Image.png"
                     alt="Hand holding slice"
                     className="hand-img"
-                    style={{
-                      height: '438px',
-                      objectFit: 'contain',
-                      marginBottom: '49px'
-                    }}
                   />
                 </div>
               </div>
             </div>
+
 
             {/* CTA Button */}
             <div className="action-container" style={{ transform: `translateY(${progress * 50}px)` }}>
@@ -132,11 +119,14 @@ const Main = () => {
             </div>
 
             {/* Checkerboard pattern at the bottom */}
-            {/* <div className="checkerboard" /> */}
+            <div className="checkerboard" />
 
           </div>
         </div>
       </div>
+
+
+
       <ChooseCraving />
       <PersonalInformation />
       <HotDeals />
