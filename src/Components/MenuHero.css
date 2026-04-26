@@ -100,4 +100,29 @@
   .menu_hero__title {
     font-size: 3.5rem;
   }
+  .menu_hero__container
+  {
+    min-height: 300px;
+  }
+}
+@media(max-width:480px)
+{
+ .menu_hero__title
+ {
+  font-size: 43px;
+  -webkit-text-stroke: 0.7px #FCC802
+ }
+
+ .menu_hero__subtitle
+  {
+    font-size: 12px;
+  }
+  .menu_hero__download_btn
+  {
+    font-size: 10px;
+  }
+  .category_filter__btn
+  {
+    font-size: 14px;
+  }
 }

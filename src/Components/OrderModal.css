@@ -74,6 +74,7 @@
   outline: none;
   resize: none;
   box-sizing: border-box;
+  background: white !important;
 }
 
 .order_modal__textarea::placeholder {
@@ -262,5 +263,63 @@
   .order_modal__container {
   
     max-width: 250px;
+  }
+}
+
+.order_modal__bank_details {
+  margin-top: 15px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.order_modal__bank_info_card {
+  background-color: #fdf5f2;
+  border: 2px solid #441803;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 4px 4px 0px 0px #441803;
+}
+
+.order_modal__bank_info_card h4 {
+  font-family: "Beach Day", sans-serif;
+  font-size: 20px;
+  color: #441803;
+  margin: 0 0 15px 0;
+  text-decoration: underline;
+}
+
+.order_modal__bank_row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-family: "Wild", sans-serif;
+  font-size: 14px;
+  color: #441803;
+}
+
+.order_modal__bank_row strong {
+  font-family: "Beach Day", sans-serif;
+  font-size: 16px;
+  word-break: break-all;
+  text-align: right;
+  margin-left: 10px;
+}
+
+.order_modal__bank_instruction {
+  font-family: "Wild", sans-serif;
+  font-size: 13px;
+  color: #c44005;
+  margin-top: 15px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

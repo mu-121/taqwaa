@@ -6,8 +6,7 @@ export const MENU_CATEGORIES = [
   "SANDWICHES",
   "PLATTER",
   "SIDES",
-  "ADD ONS",
-  "DRINKS",
+ 
 ];
 
 export const MENU_ITEMS = [

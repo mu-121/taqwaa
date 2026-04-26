@@ -25,9 +25,10 @@ const Main = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Determine continuous progress between 0 and 1 over roughly 70% of viewport height
+  // Determine continuous progress between 0 and 1 over a specific scroll duration
   const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
-  const progress = Math.min(Math.max(scrollY / (windowHeight * 0.7), 0), 1);
+  const scrollDuration = windowHeight * 1.2; // 120% of viewport height for the animation
+  const progress = Math.min(Math.max(scrollY / scrollDuration, 0), 1);
 
   // Clamped Opacities (browsers reject negative opacity values!)
   const fadeOpacityFast = Math.max(0, 1 - progress * 2);
@@ -35,15 +36,14 @@ const Main = () => {
 
   return (
   <div className="main-container1111">
-    <div
-      ref={heroRef}
-      className="hero-container"
-      style={{
-        backgroundImage: "url('/Images/HeroSection/Hero Section.png')",
-        backgroundSize: '100% 100%',
-        backgroundPosition: 'center',
-      }}
-    >
+    <div className="hero-scroll-track">
+      <div className="hero-sticky-content" style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden' }}>
+        <div
+          ref={heroRef}
+          className="hero-container"
+          style={{ height: '100%', paddingBottom: '0' }}
+        >
+
       <Navbar />
 
       {/* Left & Right fade gradients */}
@@ -58,7 +58,6 @@ const Main = () => {
           alt="leaf" 
           className="bg_text__left__image222" 
           style={{
-            opacity: fadeOpacityFast,
             transform: `translateY(${-progress * 150}px)`
           }}
         />
@@ -74,7 +73,6 @@ const Main = () => {
           alt="veg" 
           className="bg_text__left__image111" 
           style={{
-            opacity: fadeOpacityFast,
             transform: `translateY(${progress * 150}px)`
           }}
         />
@@ -82,62 +80,66 @@ const Main = () => {
       </div>
 
       {/* Pizza + hand scene */}
-      <div className="pizza-scene">
-        <div 
-          style={{ 
-            transform: `translateY(${progress * 100}px) scale(${Math.max(0, 1 - progress * 0.22)})`, 
-            opacity: fadeOpacityFast,
-            willChange: 'transform, opacity' /* Force hardware acceleration fix for iOS/Safari */
-          }}
-        >
-          <div className="pizza-wrapper">
-            <img
-              src="/Images/HeroSection/gGIsm5PPowFM8rqpltxZMzH8Y.png"
-              alt="Pepperoni Pizza"
-              className="main-pizza"
-            />
-          </div>
-        </div>
-
+      <div className="pizza-scene" style={{ marginBottom: '60px' }}>
+        {/* The component with the hole (Pizza Image) - Static */}
         <div 
           style={{ 
             position: 'absolute',
-            top: 0, left: 0, right: 0, bottom: 0, /* fully cover parent */
+            zIndex: 5,
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
-            transform: `translate(${progress * 420}px, ${progress * 300}px) scale(${1 - progress * 0.25})`, 
-            opacity: fadeOpacityMid,
-            zIndex: 8,
-            pointerEvents: 'none'
+            alignItems: 'center'
           }}
         >
-          {/* Internal relative wrapper to allow flex-center alignment to act just like absolute placement */}
-          <div className="hand-wrapper" style={{ position: 'relative', flexShrink: 0 }}>
+          <img
+            src="/Images/HeroSection/Pizza Image.png"
+            alt="Pizza Base"
+            className="main-pizza"
+            style={{ height: '500px', objectFit: 'contain' }}
+          />
+        </div>
+
+        {/* The component with the hand and slice (Hand Image) - Moves */}
+        <div 
+          style={{ 
+            transform: `translateX(${progress * 120}vw)`, 
+            willChange: 'transform',
+            zIndex: 10,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <div className="hand-wrapper" style={{ position: 'relative', flexShrink: 0, width: 'auto' }}>
             <img
-              src="/Images/HeroSection/NzOX0DiiIPMTOlnQ1Jg1uBLolE.png"
-              alt="Hand grabbing pizza slice"
+              src="/Images/HeroSection/Hand Image.png"
+              alt="Hand holding slice"
               className="hand-img"
+              style={{ 
+                height: '438px', 
+                objectFit: 'contain',
+                marginBottom: '49px'
+              }}
             />
           </div>
         </div>
       </div>
 
       {/* CTA Button */}
-      <div className="action-container" style={{ opacity: fadeOpacityFast, transform: `translateY(${progress * 50}px)` }}>
+      <div className="action-container" style={{ transform: `translateY(${progress * 50}px)` }}>
         <Link to="/menu" className="explore-btn" style={{ textDecoration: 'none', display: 'inline-block' }}>
           EXPLORE MENU
         </Link>
-      </div>
+        </div>
 
+      </div>
+    </div>
     </div>
     <ChooseCraving />
     <PersonalInformation />
     <HotDeals />
     <Subscribe />
     <Footer />
-
-
     </div>
   );
 };

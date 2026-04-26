@@ -155,7 +155,9 @@
 }
 .hero-container {
   min-height: 100vh;
-  background-color: #fccb10;
+  background-image: url("/Images/HeroSection/h1.png");
+  background-size: contain;
+  background-position: center;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -165,6 +167,17 @@
   padding-bottom: 55px;
   box-sizing: border-box;
 }
+
+@media (max-width: 600px) {
+  .hero-container {
+    background-image: url("/Images/HeroSection/h1.png");
+    background-size: 100% 100%;
+  }
+  .checkerboard {
+    display: none;
+  }
+}
+
 
 /* ============================================
    LEFT & RIGHT FADE GRADIENTS
@@ -325,7 +338,7 @@
    EXPLORE BUTTON
    ============================================ */
 .action-container {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   z-index: 15;
   position: relative;
   opacity: 0;
@@ -431,10 +444,12 @@
   /* .hand-wrapper { width: 190px; right: -40px; bottom: -30px; } */
   .bg-text {
     font-size: 4rem;
+      -webkit-text-stroke: 1px #fcc802;
   }
   .fade-gradient-left,
   .fade-gradient-right {
     width: 80px;
+    z-index: -1;
   }
   .explore-btn {
     font-size: 0.9rem;
@@ -442,6 +457,6 @@
   }
     .main-container1111
   {
-    gap:20px
+    gap:40px
   }
 }

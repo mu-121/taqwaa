@@ -5,7 +5,7 @@ const MenuHero = () => {
   return (
     <div   style={{
         backgroundImage: "url('/Images/HeroSection/Hero Section.png')",
-        backgroundSize: '100% 100%',
+        backgroundSize: 'contain',
         backgroundPosition: 'center',
       }} className="menu_hero__container">
       <div className="menu_hero__content">

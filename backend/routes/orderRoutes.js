@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
+// Removed smsService import
 const { sendOrderConfirmationEmail } = require('../utils/emailService');
 
 // @desc    Create new order
@@ -8,17 +9,15 @@ const { sendOrderConfirmationEmail } = require('../utils/emailService');
 router.post('/', async (req, res) => {
   try {
     console.log('Incoming Order Payload:', JSON.stringify(req.body, null, 2));
-    const { 
-      customerInfo, 
-      items, 
-      totalAmount, 
-      paymentMethod, 
-      notes 
-    } = req.body;
+
+    const { customerInfo, items, totalAmount, paymentMethod, notes } = req.body;
+
+    if (!customerInfo || !customerInfo.name || !customerInfo.phone || !customerInfo.address) {
+      return res.status(400).json({ message: 'Customer info (name, phone, address) is required' });
+    }
 
     if (!items || items.length === 0) {
-      res.status(400).json({ message: 'No order items' });
-      return;
+      return res.status(400).json({ message: 'No order items' });
     }
 
     const order = new Order({
@@ -30,12 +29,18 @@ router.post('/', async (req, res) => {
     });
 
     const createdOrder = await order.save();
+    console.log('✅ Order saved to DB:', createdOrder._id);
 
-    // Send confirmation email asynchronously
-    sendOrderConfirmationEmail(createdOrder);
+    // Twilio SMS confirmation removed. Frontend uses Click-to-Chat.
+    if (customerInfo.email) {
+      sendOrderConfirmationEmail(createdOrder)
+        .then(() => console.log('Email sent'))
+        .catch((e) => console.error('Email error:', e.message));
+    }
 
     res.status(201).json(createdOrder);
   } catch (error) {
+    console.error('Order creation error:', error.message);
     res.status(500).json({ message: error.message });
   }
 });
@@ -43,12 +48,12 @@ router.post('/', async (req, res) => {
 // @desc    Get all orders (for admin)
 // @route   GET /api/orders
 router.get('/', async (req, res) => {
-    try {
-      const orders = await Order.find({}).sort({ createdAt: -1 });
-      res.json(orders);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  });
+  try {
+    const orders = await Order.find({}).sort({ createdAt: -1 });
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 module.exports = router;

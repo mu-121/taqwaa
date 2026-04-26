@@ -8,11 +8,20 @@
 
 .category_filter__wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 12px;
-  justify-content: center;
-  max-width: 1186px;
+  justify-content: flex-start;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 10px 5px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
 }
+
+.category_filter__wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
 
 .category_filter__btn {
   background-color: white;
@@ -54,4 +63,11 @@ box-shadow: 5px 4px 0px 0px #441803;
     padding: 6px 15px;
     font-size: 0.8rem;
   }
+}
+@media(max-width: 480px) {
+  .category_filter__btn {
+ font-size: 14px;
+ white-space: nowrap;
+  }
+
 }

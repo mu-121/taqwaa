@@ -1,7 +1,7 @@
 .footer__section {
   position: relative;
   width: 100%;
-  background-image: url("/Images/HeroSection/Hero Section1.png");
+  background-image: url("/Images/HeroSection/he11.png");
   background-size: contain;
   background-position: center;
   padding: 120px 20px;
@@ -82,7 +82,7 @@
 
 .footer__pill {
   background: white;
-  border: 4px solid #441803;
+  border: 1px solid #441803;
   color: #441803;
   font-family: "Beach Day", sans-serif;
   text-transform: uppercase;
@@ -90,7 +90,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 4px 6px 0px 0px #441803;
+  box-shadow: 5px 4px 0px 0px #441803;
+
   transition: all 0.2s ease;
 }
 
@@ -119,7 +120,8 @@
   text-align: center;
 
   font-family: "Beach Day", sans-serif;
-  font-size: 180px;
+  font-size: 15.5vw;
+  line-height: 1;
   margin: 0;
   padding: 0;
 
@@ -138,17 +140,14 @@
     2.94px 2.94px 0px #441803,
     0px 4px 0px #441803;
 
-  /* NEW styles added */
-  border: 9.88px solid #FCC8021A;
-  box-shadow: 0px 13.18px 0px 0px #4418031A;
-  backdrop-filter: blur(644px);
-  color: transparent;
+  color: #441803;
+  top:77%
 }
 
 .footer__watermark:hover {
   opacity: 1;
-  color: #441803;
 }
+
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -157,10 +156,12 @@
   }
 
   .footer__watermark {
-    font-size: 120px;
+    /* Removed font-size to use base vw size */
   }
-    .footer__section {
-    background: #FCC802 !important;
+
+  .footer__section {
+    background-image: url("/Images/HeroSection/he11.png") !important;
+    background-size: cover;
   }
 
 }
@@ -168,11 +169,13 @@
 @media (max-width: 768px) {
   .footer__section {
     padding: 100px 20px;
-    width:unset !important;
+    width: unset !important;
   }
 
   .footer__heading {
-    font-size: 32px;
+    font-size: 30px;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
   }
 
   .contact_pill {
@@ -183,10 +186,33 @@
   .address_pill {
     font-size: 12px;
     padding: 12px 25px;
-    width:70% !important
+
   }
 
   .footer__watermark {
-    font-size: 50px;
+    /* Removed font-size to use base vw size */
   }
+}
+
+@media(max-width:480px) {
+
+    .footer__watermark 
+    {
+      font-size:60px;
+      top:85%
+    }
+  .contact_pill {
+    font-size: 11px;
+  }
+
+  .address_pill {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .footer__actions {
+    margin-bottom: 20px;
+  }
+
+  
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ const Navbar = () => {
       <div className="navbar-inner">
         {/* Desktop Left Section */}
         <div className="nav-section desktop-only nav-left">
-          <button className="nav-btn-white">HOME</button>
+          <Link to="/" className="nav-btn-white" style={{ textDecoration: 'none' }}>HOME</Link>
         </div>
 
         {/* Logo Section */}
@@ -44,7 +45,7 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       <div className={`nav-dropdown ${isMenuOpen ? 'is-open' : ''}`}>
         <div className="dropdown-content">
-          <button className="dropdown-link" onClick={() => setIsMenuOpen(false)}>HOME</button>
+          <Link to="/" className="dropdown-link" style={{ textDecoration: 'none' }} onClick={() => setIsMenuOpen(false)}>HOME</Link>
           <button className="dropdown-link" onClick={() => setIsMenuOpen(false)}>CART</button>
           <button className="dropdown-link phone-link" onClick={() => setIsMenuOpen(false)}>0333-1449795</button>
         </div>

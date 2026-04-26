@@ -15,9 +15,15 @@ const Subscribe = () => {
             </p>
             
             <div className="subscribe__socials">
-              <img src="/Images/HeroSection/facebook.svg" alt="Facebook" className="social-icon" />
-              <img src="/Images/HeroSection/insta.svg" alt="Instagram" className="social-icon" />
-              <img src="/Images/HeroSection/tiktok.svg" alt="TikTok" className="social-icon" />
+              <div className="subscribe__socials_group22">
+              <img src="/Images/HeroSection/f.svg" alt="Facebook" className="social-icon" />
+              </div>
+                <div className="subscribe__socials_group22">
+              <img src="/Images/HeroSection/i.svg" alt="Instagram" className="social-icon" />
+              </div>
+              <div className="subscribe__socials_group22">
+              <img src="/Images/HeroSection/t.svg" alt="TikTok" className="social-icon" />
+              </div>
             </div>
           </div>
         </div>

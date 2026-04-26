@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import './OrderModal.css';
 import { placeOrder } from '../services/api';
 
@@ -11,13 +12,11 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
   // ✅ AFTER hooks → safe early return
   if (!isOpen || !orderDetails) return null;
 
-  const { product, quantity, totalItemPrice, style, drink, name, email, phone, address } = orderDetails;
+  const { product, quantity, totalItemPrice, style, drink, name, phone, address } = orderDetails;
 
   const PAYMENT_METHODS = [
     { id: 'COD', label: 'CASH ON DELIVERY', icon: '/Images/HeroSection/cod.svg' },
-    { id: 'CARD', label: 'DEBIT/CREDIT CARD', icon: '/Images/HeroSection/debit.svg' },
-    { id: 'JAZZCASH', label: 'JAZZCASH', icon: '/Images/HeroSection/jazzcash.svg' },
-    { id: 'EASYPAISA', label: 'EASYPAISA', icon: '/Images/HeroSection/easypaisa.svg' }
+    { id: 'BANK', label: 'BANK TRANSFER', icon: '/Images/HeroSection/debit.svg' }
   ];
 
   const handleBackdropClick = (e) => {
@@ -31,7 +30,7 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
       setIsSubmitting(true);
 
       const payload = {
-        customerInfo: { name, email, phone, address },
+        customerInfo: { name, phone, address },
         items: [
           {
             productId: product._id || product.id,
@@ -47,12 +46,36 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
         notes
       };
 
-      await placeOrder(payload);
-      alert('Order Placed Successfully!');
+      const response = await placeOrder(payload);
+      
+      const orderId = response?.order?._id || response?._id || Math.floor(1000 + Math.random() * 9000);
+      const shortId = orderId.toString().slice(-6).toUpperCase();
+
+      const messageContent = `🍕 *New Order from ${name}!*\n\n` +
+        `📋 *Order ID:* #${shortId}\n` +
+        `🛒 *Items:* ${quantity}x ${product.name} ${style?.label ? `(${style.label})` : ''}\n` +
+        `💰 *Total:* Rs. ${totalItemPrice.toLocaleString()}\n` +
+        `📍 *Address:* ${address}\n` +
+        `📞 *Phone:* ${phone}\n` +
+        `💳 *Payment:* ${selectedPayment}\n` +
+        (notes ? `📝 *Notes:* ${notes}\n` : '') +
+        (selectedPayment === 'BANK TRANSFER' ? '\n🏦 _I will share the bank transfer screenshot shortly!_' : '');
+
+      const whatsappNumber = '923331449995'; // Replace with exact business number if different
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageContent)}`;
+
+      window.open(whatsappUrl, '_blank');
+      
+      if (selectedPayment === 'BANK TRANSFER') {
+        toast.success('Order Placed! Please transfer and share receipt on WhatsApp.', { duration: 6000 });
+      } else {
+        toast.success('Order Placed! Redirecting to WhatsApp...', { duration: 4000 });
+      }
+      
       onClose();
     } catch (error) {
       console.error(error);
-      alert('Failed to place order.');
+      toast.error('Failed to place order.');
     } finally {
       setIsSubmitting(false);
     }
@@ -96,6 +119,29 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
               </label>
             ))}
           </div>
+
+          {selectedPayment === 'BANK TRANSFER' && (
+            <div className="order_modal__bank_details">
+              <div className="order_modal__bank_info_card">
+                <h4>MEEZAN BANK</h4>
+                <div className="order_modal__bank_row">
+                  <span>Account Title:</span>
+                  <strong>TAQWA FOODS</strong>
+                </div>
+                <div className="order_modal__bank_row">
+                  <span>Account No:</span>
+                  <strong>0114802287</strong>
+                </div>
+                <div className="order_modal__bank_row">
+                  <span>IBAN:</span>
+                  <strong>PK69 MEZN 0003 3801 1480 2287</strong>
+                </div>
+                <p className="order_modal__bank_instruction">
+                  Please transfer the total amount and share a screenshot of the receipt on WhatsApp (0333-1449995) for faster verification.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="order_modal__section_group">

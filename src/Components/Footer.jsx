@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
 
       {/* Large Background Watermark Text */}
-      <div className="footer__watermark">Taqwa-foods</div>
+      <div className="footer__watermark">Taqwa foods</div>
     </footer>
   );
 };

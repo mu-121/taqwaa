@@ -12,7 +12,11 @@ const PersonalInformation = () => {
     const getFavorites = async () => {
       try {
         const data = await fetchFavorites();
-        setFavorites(data);
+        // Sort by orderCount descending (most ordered first), then limit to 3
+        const sorted = [...data].sort(
+          (a, b) => (b.orderCount || 0) - (a.orderCount || 0)
+        );
+        setFavorites(sorted.slice(0, 3));
       } catch (error) {
         console.error("Error fetching favorites:", error);
       } finally {

@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
 import './App.css'
 import Main from './Pages/Main'
 import Menu from './Pages/Menu'
@@ -6,6 +7,7 @@ import Menu from './Pages/Menu'
 function App() {
   return (
     <div className="app-container">
+      <Toaster position="top-right" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/menu" element={<Menu />} />

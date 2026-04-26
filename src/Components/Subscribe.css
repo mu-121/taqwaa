@@ -95,17 +95,31 @@
 .social_box:hover svg {
   transform: scale(1.1);
 }
-
+.subscribe__socials_group22
+{
+  padding:16px;
+  border-radius: 13px ;
+  border: 1.07px solid #441803;
+  box-shadow: 5.36px 4.29px 0px 0px #441803;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: white;
+}
 /* Responsive */
 @media (max-width: 1024px) {
   .subscribe__heading {
     font-size: 42px;
   }
+    .subscribe__card {
+    background-image: url("/Images/HeroSection/lg.png") !important;
+    background-size: 100% 100%;
+  }
 }
 
 @media (max-width: 768px) {
   .subscribe__section {
-    padding: 10px 20px;
+    padding: 20px 20px;
   }
   .subscribe__card {
     border-radius: 40px;
@@ -212,3 +226,26 @@
   }
 }
 
+@media(max-width:480px)
+{
+    .subscribe__heading {
+    font-size: 28px;
+  }
+  .subscribe__subheading
+  {
+    font-size: 10px;
+  }
+  .subscribe__subheading
+  {
+    max-width: 290px;
+  }
+  .subscribe__socials_group22
+  {
+    padding:10px
+  }
+  .footer__illustration
+  {
+    width:60px !important;
+    height: 50px !important;
+  }
+}

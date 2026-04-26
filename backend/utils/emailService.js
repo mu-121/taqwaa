@@ -68,6 +68,22 @@ const sendOrderConfirmationEmail = async (order) => {
               <p style="margin: 5px 0;"><strong>Payment Method:</strong> ${order.paymentMethod}</p>
             </div>
 
+            ${
+              order.paymentMethod === 'BANK TRANSFER'
+                ? `
+            <div style="margin-top: 20px; padding: 15px; border: 2px dashed #441803; border-radius: 8px; background-color: #fff9e6;">
+              <h3 style="margin-top: 0; color: #441803;">Bank Transfer Instructions</h3>
+              <p style="margin: 5px 0;">Please transfer the total amount to the following account:</p>
+              <p style="margin: 5px 0;"><strong>Bank:</strong> Meezan Bank Limited</p>
+              <p style="margin: 5px 0;"><strong>Account Title:</strong> TAQWA FOODS</p>
+              <p style="margin: 5px 0;"><strong>Account Number:</strong> 0114802287</p>
+              <p style="margin: 5px 0;"><strong>IBAN:</strong> PK69 MEZN 0003 3801 1480 2287</p>
+              <p style="margin: 10px 0 0; color: #c44005; font-size: 13px;"><em>* Please share the screenshot of your transaction on WhatsApp (0333-1449995) for confirmation.</em></p>
+            </div>
+            `
+                : ''
+            }
+
             <p style="margin-top: 30px; text-align: center; color: #777; font-size: 12px;">
               Your order is being prepared and will be delivered in approximately 45 minutes.<br>
               If you have any questions, please contact us at support@taqwafoods.com

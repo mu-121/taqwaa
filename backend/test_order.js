@@ -4,7 +4,7 @@ async function testPlaceOrder() {
   const orderData = {
     customerInfo: {
       name: 'Test Usman',
-      email: 'usman53307@gmail.com',
+
       phone: '03331234567',
       address: 'Test Address 123'
     },
@@ -28,7 +28,7 @@ async function testPlaceOrder() {
     const response = await axios.post('http://localhost:5000/api/orders', orderData);
     console.log('Order placed successfully!');
     console.log('Response:', response.data);
-    console.log('Now check your email for the confirmation.');
+    console.log('Now check the server console for the SMS confirmation log.');
   } catch (error) {
     console.error('Error placing order:', error.message);
     if (error.response) {

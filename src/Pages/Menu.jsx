@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Menu.css';
 import Navbar from '../Components/Navbar';
 import MenuHero from '../Components/MenuHero';
@@ -22,7 +22,7 @@ const Menu = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  
+
   // Cart modal state
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [cartData, setCartData] = useState(null);
@@ -41,11 +41,11 @@ const Menu = () => {
         ]);
         setCategories(fetchedCategories.map(c => c.name));
         setProducts(fetchedProducts);
-        
+
         // Handle category from URL search params
         const queryParams = new URLSearchParams(location.search);
         const categoryParam = queryParams.get('category');
-        
+
         if (categoryParam && fetchedCategories.some(c => c.name === categoryParam)) {
           setActiveCategory(categoryParam);
         } else if (fetchedCategories.length > 0) {
@@ -79,15 +79,6 @@ const Menu = () => {
     setIsModalOpen(true);
   };
 
-  const handleToggleFavoriteInState = (productId) => {
-    setProducts(prevProducts => 
-      prevProducts.map(p => 
-        (p._id === productId || p.id === productId) 
-          ? { ...p, isFavorite: !p.isFavorite } 
-          : p
-      )
-    );
-  };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -124,57 +115,90 @@ const Menu = () => {
   return (
     <div className="menu_page__container">
       <Navbar />
-      
+
       <MenuHero />
-      
+
       <div className="menu_page__content">
-        <CategoryFilter 
-          categories={categories} 
-          activeCategory={activeCategory} 
-          onCategoryChange={setActiveCategory} 
+        <CategoryFilter
+          categories={categories}
+          activeCategory={activeCategory}
+          onCategoryChange={setActiveCategory}
         />
-        
+
         {loading ? (
           <div className="menu_page__loading">Loading Delicious Food...</div>
         ) : error ? (
           <div className="menu_page__error">{error}</div>
         ) : (
           <div className="menu_page__grid_container">
-            <div className="menu_page__grid">
-              {filteredItems.map(item => (
-                <MenuItemCard 
-                  key={item._id || item.id}
-                  product={item}
-                  onAddToCart={handleOpenModal}
-                  onToggleFavorite={handleToggleFavoriteInState}
-                />
-              ))}
-            </div>
+            {/* Grouping logic */}
+            {(() => {
+              const groupedItems = filteredItems.reduce((acc, item) => {
+                const subCat = item.subCategory || "Other";
+                if (!acc[subCat]) acc[subCat] = [];
+                acc[subCat].push(item);
+                return acc;
+              }, {});
+
+              const subCategories = Object.keys(groupedItems);
+
+              // If there's only one group and it's "Other", just render the grid normally
+              if (subCategories.length === 1 && subCategories[0] === "Other") {
+                return (
+                  <div className="menu_page__grid">
+                    {filteredItems.map(item => (
+                      <MenuItemCard
+                        key={item._id || item.id}
+                        product={item}
+                        onAddToCart={handleOpenModal}
+                      />
+                    ))}
+                  </div>
+                );
+              }
+
+              // Otherwise render sections
+              return subCategories.map(subCat => (
+                <div key={subCat} className="menu_page__section">
+                  {subCat !== "Other" && <h2 className="menu_page__subcat_heading">{subCat}</h2>}
+                  <div className="menu_page__grid">
+                    {groupedItems[subCat].map(item => (
+                      <MenuItemCard
+                        key={item._id || item.id}
+                        product={item}
+                        onAddToCart={handleOpenModal}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ));
+            })()}
           </div>
         )}
+
       </div>
-      
+
       {/* First Modal: Customization */}
-      <ProductModal 
-        isOpen={isModalOpen} 
-        product={selectedProduct} 
-        onClose={handleCloseModal} 
+      <ProductModal
+        isOpen={isModalOpen}
+        product={selectedProduct}
+        onClose={handleCloseModal}
         onAddToCart={handleProductAdded}
       />
 
       {/* Second Modal: Cart */}
-      <CartModal 
-        isOpen={isCartModalOpen} 
-        cartData={cartData} 
-        onClose={handleCloseCartModal} 
+      <CartModal
+        isOpen={isCartModalOpen}
+        cartData={cartData}
+        onClose={handleCloseCartModal}
         onProceed={handleProceedToCheckout}
       />
 
       {/* Third Modal: Order Checkout */}
-      <OrderModal 
-        isOpen={isOrderModalOpen} 
-        orderDetails={orderDetails} 
-        onClose={handleCloseOrderModal} 
+      <OrderModal
+        isOpen={isOrderModalOpen}
+        orderDetails={orderDetails}
+        onClose={handleCloseOrderModal}
         onBack={handleGoBackToCart}
       />
 
