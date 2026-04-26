@@ -25,7 +25,7 @@ const Navbar = () => {
         {/* Desktop Right Section */}
         <div className="nav-section desktop-only nav-right">
           <button className="nav-btn-white">CART</button>
-          <button className="nav-btn-white phone-btn">0333-1449795</button>
+          <button className="nav-btn-white phone-btn">0333-1449995</button>
         </div>
 
         {/* Mobile Toggle Button (visible below 1000px) */}
@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="dropdown-content">
           <Link to="/" className="dropdown-link" style={{ textDecoration: 'none' }} onClick={() => setIsMenuOpen(false)}>HOME</Link>
           <button className="dropdown-link" onClick={() => setIsMenuOpen(false)}>CART</button>
-          <button className="dropdown-link phone-link" onClick={() => setIsMenuOpen(false)}>0333-1449795</button>
+          <button className="dropdown-link phone-link" onClick={() => setIsMenuOpen(false)}>0333-1449995</button>
         </div>
       </div>
     </nav>
