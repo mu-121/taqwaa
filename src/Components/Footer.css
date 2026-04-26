@@ -148,7 +148,13 @@
   opacity: 1;
 }
 
-
+@media(min-width:1500px)
+{
+  .footer__watermark
+  {
+    top:69%
+  }
+}
 /* Responsive */
 @media (max-width: 1024px) {
   .footer__heading {
