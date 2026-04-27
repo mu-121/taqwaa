@@ -44,7 +44,7 @@ const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
           </div>
           <div className="cart_modal__item_details">
             <h3 className="cart_modal__item_name">{product.name}</h3>
-            <p className="cart_modal__item_style">{style.label}</p>
+            {style.label && <p className="cart_modal__item_style">{style.label}</p>}
             <div className="cart_modal__item_price">
               Rs. <span className="cart_modal__item_price_val">{style.price}</span>
             </div>
@@ -109,7 +109,7 @@ const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
           <h3 className="cart_modal__section_title">TOTAL</h3>
           <p className="cart_modal__delivery_time">Estimated Delivery Time 45 Mins</p>
           <div className="cart_modal__total_row">
-            <span>{quantity} x {product.name} PIZZA</span>
+            <span>{quantity} x {product.name}</span>
             <span className="cart_modal__highlight_text">Rs. <span className="cart_modal__item_price_val">{totalItemPrice.toLocaleString()}</span></span>
           </div>
           <div className="cart_modal__total_row">

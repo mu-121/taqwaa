@@ -26,9 +26,17 @@ const ProductModal = ({ isOpen, product, onClose, onAddToCart }) => {
     }
   };
 
+  const isPizza = product.category === 'PIZZAS';
+
   const handleAddToCart = () => {
-    const styleObj = STYLES.find(s => s.label === selectedStyle);
+    // If pizza, use selected style. Otherwise, use empty label and base price.
+    const styleObj = isPizza 
+      ? STYLES.find(s => s.label === selectedStyle) 
+      : { label: '', price: product.price };
+      
+    // Drink is always selectable
     const drinkObj = DRINKS.find(d => d.label === selectedDrink);
+
     onAddToCart({
       product,
       style: styleObj,
@@ -54,23 +62,25 @@ const ProductModal = ({ isOpen, product, onClose, onAddToCart }) => {
             <span className="product_modal__starting_price">Rs. <span className="product_modal__starting_price1">{product.price} </span> </span>
           </div>
 
-          <div className="product_modal__selection_group">
-            <h3 className="product_modal__group_title">SELECT YOUR STYLE</h3>
-            {STYLES.map((style) => (
-              <label key={style.label} className="product_modal__option">
-                <input
-                  type="radio"
-                  name="style"
-                  value={style.label}
-                  checked={selectedStyle === style.label}
-                  onChange={() => setSelectedStyle(style.label)}
-                />
-                <span className="product_modal__radio_custom"></span>
-                <span className="product_modal__option_label">{style.label}</span>
-                <span className="product_modal__option_price">Rs.  <span className="product_modal__option_price11">{style.price} </span> </span>
-              </label>
-            ))}
-          </div>
+          {isPizza && (
+            <div className="product_modal__selection_group">
+              <h3 className="product_modal__group_title">SELECT YOUR STYLE</h3>
+              {STYLES.map((style) => (
+                <label key={style.label} className="product_modal__option">
+                  <input
+                    type="radio"
+                    name="style"
+                    value={style.label}
+                    checked={selectedStyle === style.label}
+                    onChange={() => setSelectedStyle(style.label)}
+                  />
+                  <span className="product_modal__radio_custom"></span>
+                  <span className="product_modal__option_label">{style.label}</span>
+                  <span className="product_modal__option_price">Rs.  <span className="product_modal__option_price11">{style.price} </span> </span>
+                </label>
+              ))}
+            </div>
+          )}
 
           <div className="product_modal__selection_group">
             <h3 className="product_modal__group_title">SELECT YOUR DRINK</h3>

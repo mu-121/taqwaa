@@ -47,12 +47,12 @@ box-shadow: 5px 4px 0px 0px #441803;
 .category_filter__btn.active {
   background-color: #fccb10;
   transform: translateY(2px);
-  box-shadow: 0 2px 0 #441803;
+box-shadow: 5px 4px 0px 0px #441803;
 }
 
 .category_filter__btn:active {
   transform: translateY(2px);
-  box-shadow: 0 2px 0 #441803;
+box-shadow: 5px 4px 0px 0px #441803;
 }
 
 @media (max-width: 600px) {
