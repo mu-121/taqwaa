@@ -13,7 +13,7 @@ const Footer = () => {
           <img src="/Images/Navbar/logo1.svg" alt="Taqwa-foods" className="footer__illustration" />
         </div>
 
-        <h2 className="footer__heading">READY TO GRAB THE MEAL OF HAPPINESS?</h2>
+        <h2 className="footer__heading">READY TO GRAB <br />THE MEAL OF HAPPINESS?</h2>
 
         <div className="footer__actions">
           <div className="footer__pill contact_pill">

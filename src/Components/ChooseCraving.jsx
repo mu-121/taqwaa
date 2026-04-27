@@ -7,10 +7,10 @@ const ChooseCraving = () => {
   const [categories, setCategories] = useState([]);
   const [searchParams] = useSearchParams();
   const currentCategory = searchParams.get("category");
-  
+
   // Persist category selection
   const [lastSelectedCategory, setLastSelectedCategory] = useState(
-    localStorage.getItem("lastCategory") || "PIZZAS"
+    localStorage.getItem("lastCategory") || "PIZZAS",
   );
 
   useEffect(() => {
@@ -18,7 +18,9 @@ const ChooseCraving = () => {
       try {
         const data = await fetchCategories();
         // Filter out HOT DEALS if you don't want them in the selection row
-        const filteredCategories = data.filter(cat => cat.name !== "HOT DEALS");
+        const filteredCategories = data.filter(
+          (cat) => cat.name !== "HOT DEALS",
+        );
         setCategories(filteredCategories);
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -38,48 +40,61 @@ const ChooseCraving = () => {
   const getCategoryImage = (name) => {
     const upperName = name.toUpperCase();
     const map = {
-      "STARTERS": "/Images/Craving/s1.svg",
-      "PIZZAS": "/Images/ppp.svg",
-      "BURGERS": "/Images/Craving/s3.svg",
-      "SANDWICHES": "/Images/Craving/s4.svg",
-      "PLATTER": "/Images/Craving/ccc.svg",
+      STARTERS: "/Images/Craving/s1.svg",
+      PIZZAS: "/Images/ppp.svg",
+      BURGERS: "/Images/Craving/s3.svg",
+      SANDWICHES: "/Images/Craving/s4.svg",
+      PLATTER: "/Images/Craving/ccc.svg",
       "SIDE CRAVING": "/Images/cc.svg",
-      "SIDES": "/Images/sides.svg",
-      "PASTAS": "/Images/pas.svg",
-      "CHEEZY CRUNCH": "/Images/ccc.svg"
+      SIDES: "/Images/sides.svg",
+      PASTAS: "/Images/pas.svg",
+      "CHEEZY CRUNCH": "/Images/ccc.svg",
     };
     return map[upperName] || "/Images/Craving/s2.svg";
   };
 
   return (
     <div className="choose_craving__main_container">
-      <p className="choose_craving__heading">
-        CHOOSE YOUR CRAVING
-      </p>
+      <p className="choose_craving__heading">CHOOSE YOUR CRAVING</p>
 
       <div className="choose_craving__options_container">
-        {categories.map((cat) => {
-          const isActive = (currentCategory || lastSelectedCategory) === cat.name;
+        {categories.map((cat, index) => {
+          const isActive =
+            (currentCategory || lastSelectedCategory) === cat.name;
+
+          const sizeStyle =
+            index === 0
+              ? { width: "100px", height: "100px" } // 1st
+              : index === 2
+                ? { width: "90px", height: "90px" } // 3rd
+                : { width: "80px", height: "80px" }; // others
+
           return (
-            <Link 
-              to={`/menu?category=${cat.name}`} 
-              className="choose_craving__option" 
+            <Link
+              to={`/menu?category=${cat.name}`}
+              className="choose_craving__option"
               key={cat._id}
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
               onClick={() => {
                 localStorage.setItem("lastCategory", cat.name);
                 setLastSelectedCategory(cat.name);
               }}
             >
-              <div className={`choose_craving__option_image_container22 ${isActive ? "active" : ""}`}>
+              <div
+                className={`choose_craving__option_image_container22 ${
+                  isActive ? "active" : ""
+                }`}
+              >
                 <img
                   src={getCategoryImage(cat.name)}
                   alt={cat.name}
-                  width="80"
-                  height="80"
+                  style={sizeStyle}
                 />
               </div>
-              <p className="choose_craving__option_label">{cat.name.charAt(0) + cat.name.slice(1).toLowerCase()}</p>
+
+              <p className="choose_craving__option_label">
+                {cat.name.charAt(0) + cat.name.slice(1).toLowerCase()}
+              </p>
             </Link>
           );
         })}

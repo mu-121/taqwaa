@@ -9,7 +9,7 @@
     transform 0.2s ease,
     box-shadow 0.2s ease;
   box-shadow: 5px 4px 0px 0px #441803;
-  min-height: 490px;
+  min-height: 500px;
   align-items: center;
   justify-content: center;
   padding: 24px;
@@ -35,7 +35,7 @@
 
 .menu_item__image {
 height:280px;
-width:280px;
+width:390px;
 
   object-fit: contain;
 }
@@ -163,13 +163,27 @@ width:280px;
   .menu_item__card {
     padding: 16px;
     border-radius: 30px;
-    min-height:450px
+    min-height:370px
+  }
+  .menu_item__image
+
+  {
+    height: 250px;
+    width: 300px;
+  }
+  .menu_item__image_container
+  {
+    height: unset;
   }
   .menu_item__name {
     font-size: 1.2rem;
   }
   .menu_item__description {
     font-size: 0.75rem;
+  }
+  .menu_item__footer
+  {
+    margin-bottom: 20px;
   }
   
 }

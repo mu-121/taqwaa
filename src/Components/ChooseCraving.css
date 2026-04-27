@@ -106,8 +106,8 @@
     width: 52px;
   }
   .choose_craving__option_image_container22 img {
-    width: 34px;
-    height: 34px;
+    width: 34px !important;
+    height: 34px !important;
   }
   .choose_craving__option
   {

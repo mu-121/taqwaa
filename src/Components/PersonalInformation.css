@@ -40,14 +40,16 @@
 }
 
 .personal_information__view_all_btn {
-  padding: 14px 40px;
+  padding: 18px 50px;
   border-radius: 100px;
   background: #ffffff;
-  border: 2px solid #441803;
-  box-shadow: 4px 3px 0px 0px #441803;
+border: 0.53px solid #441803;
+box-shadow: 2.65px 2.12px 0px 0px #441803;
+
+
   font-family: "Beach Day", sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
   text-transform: uppercase;
   color: #441803;
   cursor: pointer;
@@ -73,7 +75,7 @@
 .favorite_card {
   background: #ffffff;
   border: 4px solid #441803;
-  border-radius: 20px;
+  border-radius: 60px;
   padding: 24px;
   box-shadow: 5px 4px 0px 0px #441803;
 
@@ -132,14 +134,15 @@
   align-items: center;
   margin-top: 10px;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .favorite_card__add_btn {
   padding: 10px 30px;
   border-radius: 100px;
   background: #ffffff;
-border: 0.84px solid #441803;
-box-shadow: 4.21px 3.37px 0px 0px #441803;
+  border: 0.84px solid #441803;
+  box-shadow: 4.21px 3.37px 0px 0px #441803;
 
   font-family: "Beach Day", sans-serif;
   font-size: 16px;
@@ -162,10 +165,9 @@ box-shadow: 4.21px 3.37px 0px 0px #441803;
   -webkit-text-stroke: 0.76px #441803;
   text-shadow: 2.94px 2.94px 0px #441803;
 }
-  .deal_card__price_valqq
-  {
-    font-size: 45px;
-  }
+.deal_card__price_valqq {
+  font-size: 45px;
+}
 
 /* Responsive Breakpoints */
 @media (max-width: 1200px) {
@@ -189,7 +191,6 @@ box-shadow: 4.21px 3.37px 0px 0px #441803;
     gap: 40px;
   }
   .personal_information__header {
-  
     align-items: flex-start;
     gap: 20px;
   }
@@ -203,13 +204,11 @@ box-shadow: 4.21px 3.37px 0px 0px #441803;
   .personal_information__subheading {
     font-size: 18px;
   }
-  .favorite_card__price
-  {
+  .favorite_card__price {
     font-size: 24px !important;
   }
-  .deal_card__price_valqq
-  {
-     font-size: 40px !important;
+  .deal_card__price_valqq {
+    font-size: 40px !important;
   }
 }
 
@@ -217,13 +216,12 @@ box-shadow: 4.21px 3.37px 0px 0px #441803;
   .personal_information__heading {
     font-size: 26px;
   }
-  .personal_information__subheading
-  {
+  .personal_information__subheading {
     font-size: 10px;
   }
   .favorite_card {
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 55.5px;
   }
   .favorite_card__title {
     font-size: 24px;
@@ -233,20 +231,16 @@ box-shadow: 4.21px 3.37px 0px 0px #441803;
     text-align: center;
     font-size: 10px;
     white-space: nowrap;
-    height:32px
+    height: 32px;
   }
 
   .personal_information__main_container {
-     margin-top: 20px;
-  
-}
-.favorite_card__description {
-  
+    margin-top: 20px;
+  }
+  .favorite_card__description {
     font-size: 10px;
-  
-}
-.favorite_card__add_btn
-{
-      font-size: 13px;
-}
+  }
+  .favorite_card__add_btn {
+    font-size: 13px;
+  }
 }

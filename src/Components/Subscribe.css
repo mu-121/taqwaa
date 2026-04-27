@@ -230,6 +230,7 @@ background-color: white;
 {
     .subscribe__heading {
     font-size: 28px;
+    max-width: 250px;
   }
   .subscribe__subheading
   {
@@ -241,7 +242,11 @@ background-color: white;
   }
   .subscribe__socials_group22
   {
-    padding:10px
+    padding:10px;
+border: 0.61px solid #441803;
+  box-shadow: 3.04px 2.43px 0px 0px #441803;
+
+
   }
   .footer__illustration
   {
