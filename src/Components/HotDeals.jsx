@@ -24,7 +24,7 @@ const HotDeals = () => {
         const hotDeals = allProducts.filter(p => p.category === "HOT DEALS").slice(0, 4);
         setDeals(hotDeals);
       } catch (error) {
-        console.error("Error fetching hot deals:", error);
+        console.error("Error loading hot deals:", error);
       } finally {
         setLoading(false);
       }

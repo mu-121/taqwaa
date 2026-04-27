@@ -1,34 +1,53 @@
-import axios from 'axios';
+import { categories, products } from '../data/menuData';
 
-const API_BASE_URL = 'http://localhost:5000/api';
-
-const api = axios.create({
-  baseURL: API_BASE_URL,
-});
-
+// Mocking API responses using local data
 export const fetchProducts = async () => {
-  const response = await api.get('/products');
-  return response.data;
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(products), 300);
+  });
 };
 
 export const fetchCategories = async () => {
-  const response = await api.get('/categories');
-  return response.data;
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(categories), 300);
+  });
 };
 
 export const fetchFavorites = async () => {
-  const response = await api.get('/products/favorites');
-  return response.data;
+  return new Promise((resolve) => {
+    const favorites = products.filter(p => p.isFavorite);
+    setTimeout(() => resolve(favorites), 300);
+  });
 };
 
 export const toggleProductFavorite = async (id) => {
-  const response = await api.patch(`/products/${id}/toggle-favorite`);
-  return response.data;
+  return new Promise((resolve) => {
+    const product = products.find(p => p._id === id);
+    if (product) {
+      product.isFavorite = !product.isFavorite;
+    }
+    setTimeout(() => resolve(product), 300);
+  });
 };
 
 export const placeOrder = async (orderData) => {
-  const response = await api.post('/orders', orderData);
-  return response.data;
+  return new Promise((resolve) => {
+    console.log('Order Placed Successfully (Local):', orderData);
+    // Simulate back-end response
+    const mockResponse = {
+      ...orderData,
+      _id: 'ORD' + Math.floor(100000 + Math.random() * 900000),
+      createdAt: new Date().toISOString()
+    };
+    setTimeout(() => resolve(mockResponse), 500);
+  });
 };
 
-export default api;
+export default {
+  fetchProducts,
+  fetchCategories,
+  fetchFavorites,
+  toggleProductFavorite,
+  placeOrder
+};
+

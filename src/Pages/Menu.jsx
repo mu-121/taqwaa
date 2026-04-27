@@ -64,7 +64,7 @@ const Menu = () => {
         }
       } catch (err) {
         console.error("Failed to fetch menu data:", err);
-        setError("Could not load menu. Please make sure the server is running.");
+        setError("Could not load menu. Please try again later.");
       } finally {
         setLoading(false);
       }
