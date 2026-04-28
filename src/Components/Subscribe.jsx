@@ -1,10 +1,14 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./Subscribe.css";
 
 const Subscribe = () => {
+  const location = useLocation();
+  const isMenuPage = location.pathname === "/menu";
+
   return (
     <div className="subscribe__main_container">
-      <div className="subscribe__section">
+      <div className={`subscribe__section ${isMenuPage ? "subscribe__section--menu" : ""}`}>
         <div className="subscribe__container">
           <div className="subscribe__card">
             <h2 className="subscribe__heading">

@@ -3,11 +3,7 @@ import './MenuHero.css';
 
 const MenuHero = () => {
   return (
-    <div   style={{
-        backgroundImage: "url('/Images/HeroSection/Hero Section.png')",
-        backgroundSize: 'contain',
-   
-      }} className="menu_hero__container">
+    <div className="menu_hero__container">
       <div className="menu_hero__content">
         <h1 className="menu_hero__title">CRAVELIST</h1>
         <p className="menu_hero__subtitle">

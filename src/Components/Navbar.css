@@ -160,7 +160,7 @@
   }
 
   .hamburger-line {
-    width: 14px;
+    width: 20px;
     height: 2px;
     background-color: #441803;
     border-radius: 2px;
@@ -168,15 +168,16 @@
   }
 
   .hamburger-btn.active .hamburger-line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(4px) rotate(45deg);
   }
 
   .hamburger-btn.active .hamburger-line:nth-child(2) {
     opacity: 0;
+    transform: translateX(-10px);
   }
 
   .hamburger-btn.active .hamburger-line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-4px) rotate(-45deg);
   }
 
   .hamburger-btn:active {

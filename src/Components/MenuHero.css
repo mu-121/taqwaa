@@ -9,11 +9,10 @@
   text-align: center;
   padding: 100px 20px 60px;
   overflow: hidden;
-  /* Add subtle wave pattern background */
-  background-image: 
-    radial-gradient(circle at 100% 150%, #fccb10 24%, #f7c300 25%, #f7c300 28%, #fccb10 29%, #fccb10 36%, #f7c300 36%, #f7c300 40%, rgba(255,255,255,0) 41%),
-    radial-gradient(circle at 0 150%, #fccb10 24%, #f7c300 25%, #f7c300 28%, #fccb10 29%, #fccb10 36%, #f7c300 36%, #f7c300 40%, rgba(255,255,255,0) 41%);
-  background-size: 150px 150px;
+  background-image: url('/Images/HeroSection/Hero Section.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
   min-height: 500px;
 }
 
@@ -33,7 +32,7 @@
   letter-spacing: 2px;
 
   /* Border effect */
-  -webkit-text-stroke: 4px #FCC802;
+  -webkit-text-stroke: 3px #FCC802;
 
   /* Box-shadow → text-shadow equivalent */
   text-shadow: 0px 8px 0px #441803;
@@ -51,7 +50,7 @@
 
 .menu_hero__download_btn {
   background-color: white;
-  border: 2px solid #441803;
+border: 1px solid #441803;
   color: #441803;
   font-family: "Beach Day", "Impact", fantasy, sans-serif;
   font-size: 1rem;
@@ -60,7 +59,7 @@
   border-radius: 30px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 4px 0 #441803;
+box-shadow: 5px 4px 0px 0px #441803;
   margin-top: 20px;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
@@ -122,6 +121,9 @@
   .menu_hero__download_btn
   {
     font-size: 10px;
+    border: 0.53px solid #441803;
+    box-shadow: 2.65px 2.12px 0px 0px #441803;
+
   }
   .category_filter__btn
   {

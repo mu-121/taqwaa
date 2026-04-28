@@ -13,6 +13,10 @@
   align-items: center;
 }
 
+.subscribe__section.subscribe__section--menu {
+  padding: 0px 40px;
+}
+
 
 .subscribe__container {
   width: 100%;

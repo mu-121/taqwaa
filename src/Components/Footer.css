@@ -2,8 +2,10 @@
   position: relative;
   width: 100%;
   background-image: url("/Images/HeroSection/he11.png");
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: 100% auto;
+  background-position: top;
+  background-repeat: repeat-y;
+  background-color: #fccb10;
   padding: 120px 20px;
   display: flex;
   flex-direction: column;
@@ -141,20 +143,20 @@
     0px 4px 0px #441803;
 
   color: #441803;
-  top:77%
+  top: 77%;
+  right:2%
 }
 
 .footer__watermark:hover {
   opacity: 1;
 }
 
-@media(min-width:1500px)
-{
-  .footer__watermark
-  {
-    top:69%
+@media(min-width:1500px) {
+  .footer__watermark {
+    top: 69%
   }
 }
+
 /* Responsive */
 @media (max-width: 1024px) {
   .footer__heading {
@@ -167,15 +169,13 @@
 
   .footer__section {
     background-image: url("/Images/HeroSection/he11.png") !important;
-    background-size: cover;
   }
 
 }
 
 @media (max-width: 768px) {
   .footer__section {
-    padding: 100px 20px;
-    width: unset !important;
+    padding: 80px 20px;
   }
 
   .footer__heading {
@@ -202,18 +202,19 @@
 
 @media(max-width:480px) {
 
-    .footer__watermark 
-    {
-      font-size:60px;
-      top:85%
-    }
+  .footer__watermark {
+    font-size: 12vw;
+    top: auto;
+    bottom: 20px;
+  }
+
   .contact_pill {
     font-size: 11px;
   }
 
   .address_pill {
     font-size: 11px;
-    max-width:  253px;
+    max-width: 253px;
     line-height: 100%;
   }
 
@@ -221,5 +222,5 @@
     margin-bottom: 20px;
   }
 
-  
+
 }

@@ -14,11 +14,16 @@ const ChooseCraving = ({ onCategoryChange, activeCategory }) => {
           (cat) => cat.name !== "HOT DEALS",
         );
 
-        // Move PIZZAS to the front
+        // Move PIZZAS to the second position (index 1)
         const pizzaIndex = filteredCategories.findIndex(cat => cat.name.toUpperCase() === "PIZZAS" || cat.name.toUpperCase() === "PIZZA");
         if (pizzaIndex > -1) {
           const pizzaCat = filteredCategories.splice(pizzaIndex, 1)[0];
-          filteredCategories.unshift(pizzaCat);
+          // If at least one item remains, insert at index 1, otherwise just push it
+          if (filteredCategories.length > 0) {
+            filteredCategories.splice(1, 0, pizzaCat);
+          } else {
+            filteredCategories.push(pizzaCat);
+          }
         }
 
         setCategories(filteredCategories);
@@ -60,10 +65,10 @@ const ChooseCraving = ({ onCategoryChange, activeCategory }) => {
           const isActive = activeCategory === cat.name;
 
           const sizeStyle =
-            index === 0
-              ? { width: "100px", height: "100px" } // 1st
-              : index === 2
-                ? { width: "90px", height: "90px" } // 3rd
+            isActive
+              ? { width: "100px", height: "100px" } // Active item is largest
+              : index === 0
+                ? { width: "90px", height: "90px" } // 1st is slightly large
                 : { width: "80px", height: "80px" }; // others
 
           return (

@@ -72,7 +72,9 @@ const PersonalInformation = ({ category }) => {
     <div className="personal_information__main_container">
       <div className="personal_information__header">
         <div className="personal_information__titles">
-          <h2 className="personal_information__heading">PERSONAL FAVORITES</h2>
+          <h2 className="personal_information__heading">
+            FAVORITE {category ? category.toUpperCase() : "ITEMS"}
+          </h2>
           <p className="personal_information__subheading">
             Signature picks you’ll keep craving again and again.
           </p>

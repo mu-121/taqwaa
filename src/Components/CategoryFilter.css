@@ -1,5 +1,5 @@
 .category_filter__container {
-  padding: 40px 20px 20px;
+  padding: 10px 20px 20px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -13,7 +13,7 @@
   justify-content: flex-start;
   max-width: 100%;
   overflow-x: auto;
-  padding: 10px 5px;
+  padding: 0px 5px 10px 5px;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
 }

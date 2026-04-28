@@ -1,7 +1,7 @@
 export const categories = [
   { _id: '1', name: "HOT DEALS" },
-  { _id: '3', name: "PIZZAS" },
   { _id: '2', name: "STARTERS" },
+  { _id: '3', name: "PIZZAS" },
   { _id: '4', name: "BURGERS" },
   { _id: '5', name: "CHEEZY CRUNCH" },
   { _id: '6', name: "PASTAS" },
