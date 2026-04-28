@@ -99,6 +99,7 @@ box-shadow: 5px 4px 0px 0px #441803;
 .favorite_card__image {
   width: 100%;
   max-width: 280px;
+  height:280px;
   object-fit: contain;
 }
 

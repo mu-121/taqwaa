@@ -5,7 +5,7 @@ const ProductModal = ({ isOpen, product, onClose, onAddToCart }) => {
   if (!isOpen || !product) return null;
 
   const [selectedStyle, setSelectedStyle] = useState('SMALL');
-  const [selectedDrink, setSelectedDrink] = useState('7UP');
+  const [selectedDrink, setSelectedDrink] = useState(null);
 
   const STYLES = [
     { label: 'SMALL', price: '600' },
@@ -34,8 +34,8 @@ const ProductModal = ({ isOpen, product, onClose, onAddToCart }) => {
       ? STYLES.find(s => s.label === selectedStyle) 
       : { label: '', price: product.price };
       
-    // Drink is always selectable
-    const drinkObj = DRINKS.find(d => d.label === selectedDrink);
+    // Drink is selectable, find it if selected
+    const drinkObj = selectedDrink ? DRINKS.find(d => d.label === selectedDrink) : null;
 
     onAddToCart({
       product,

@@ -197,7 +197,6 @@
   }
 }
 
-
 /* ============================================
    LEFT & RIGHT FADE GRADIENTS
    ============================================ */
@@ -371,17 +370,19 @@
 
 .explore-btn {
   background-color: white;
-  border: 3px solid #3d2b1f;
-  color: #3d2b1f;
+  border: 1px solid #441803;
+  color: #441803;
   font-family: "Beach Day", "Impact", fantasy, sans-serif;
-  font-size: clamp(0.9rem, 2vh, 1.15rem);
+  font-size: 20px;
   letter-spacing: 2.5px;
   padding: clamp(12px, 2vh, 18px) clamp(30px, 5vw, 50px);
   border-radius: 50px;
   font-weight: 800;
   cursor: pointer;
   box-shadow: 5px 4px 0px 0px #441803;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .explore-btn:hover {
@@ -422,17 +423,15 @@
    RESPONSIVE
    ============================================ */
 
-   @media(min-height:900px)
-   {
-    .explore-btn
-    {
-      margin-top: 0px;
-    }
-   }
+@media (min-height: 900px) {
+  .explore-btn {
+    margin-top: 0px;
+  }
+}
 @media (max-width: 1200px) {
   .main-pizza {
     width: 600px;
-    height: unset
+    height: unset;
   }
 
   .hand-wrapper {
@@ -453,7 +452,6 @@
 } */
 
 @media (max-width: 900px) {
-
   /* .main-pizza {
     width: 380px;
     height: 380px;
@@ -566,7 +564,8 @@
     padding: 6px 16px;
     font-size: 0.8rem;
   }
-  .floating-leaf, .floating-chili {
+  .floating-leaf,
+  .floating-chili {
     display: none;
   }
 }
