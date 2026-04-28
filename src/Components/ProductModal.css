@@ -180,11 +180,11 @@
   font-family: "Beach Day", sans-serif;
   font-size: 16px;
   color: #fccb10;
-  -webkit-text-stroke: 1px #441803;
-  text-shadow: 1px 1px 0px #441803;
+  -webkit-text-stroke: 0.88px #441803;
+  text-shadow: 2.42px 2.42px 0px #441803;
 }
 .product_modal__option_price11 {
-  font-size: 24px;
+  font-size: 34px;
 }
 
 .product_modal__footer {
