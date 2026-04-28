@@ -17,8 +17,8 @@
   background-color: white;
   border: 6px solid #441803;
   border-radius: 60px;
-  width: 100%;
-  max-width: 700px;
+  width: 600px;
+  max-width: 95%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
