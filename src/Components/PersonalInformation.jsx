@@ -2,20 +2,32 @@ import React, { useEffect, useState } from "react";
 import "./PersonalInformation.css";
 import { fetchFavorites } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import ProductModal from "./ProductModal";
+import CartModal from "./CartModal";
+import OrderModal from "./OrderModal";
 
-const PersonalInformation = () => {
+const PersonalInformation = ({ category }) => {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // Modal States
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+  const [cartData, setCartData] = useState(null);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
+  const [orderDetails, setOrderDetails] = useState(null);
+
   useEffect(() => {
     const getFavorites = async () => {
+      setLoading(true);
       try {
-        const data = await fetchFavorites();
+        const data = await fetchFavorites(category);
         // Sort by orderCount descending (most ordered first), then limit to 3
-        const sorted = [...data].sort(
-          (a, b) => (b.orderCount || 0) - (a.orderCount || 0)
-        );
+        const sorted = data.length > 0 
+          ? [...data].sort((a, b) => (b.orderCount || 0) - (a.orderCount || 0))
+          : [];
         setFavorites(sorted.slice(0, 3));
       } catch (error) {
         console.error("Error fetching favorites:", error);
@@ -24,14 +36,37 @@ const PersonalInformation = () => {
       }
     };
     getFavorites();
-  }, []);
+  }, [category]);
 
-  const handleProductClick = (productId) => {
-    navigate(`/menu?productId=${productId}`);
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setIsProductModalOpen(true);
   };
 
-  if (loading) return null;
-  if (favorites.length === 0) return null;
+  const handleProductAddedToCart = (fullCartData) => {
+    setCartData(fullCartData);
+    setIsProductModalOpen(false);
+    setIsCartModalOpen(true);
+  };
+
+  const handleProceedToCheckout = (finalOrderData) => {
+    setOrderDetails({ ...cartData, ...finalOrderData });
+    setIsCartModalOpen(false);
+    setIsOrderModalOpen(true);
+  };
+
+  if (loading) return (
+    <div className="personal_information__main_container">
+      <h2 className="personal_information__heading">LOADING FAVORITES...</h2>
+    </div>
+  );
+  
+  if (favorites.length === 0) return (
+    <div className="personal_information__main_container">
+      <h2 className="personal_information__heading">NO FAVORITES FOR {category || "THIS CATEGORY"}</h2>
+      <p className="personal_information__subheading">Try ordering some items to see them here!</p>
+    </div>
+  );
 
   return (
     <div className="personal_information__main_container">
@@ -55,7 +90,7 @@ const PersonalInformation = () => {
           <div 
             key={item._id} 
             className="favorite_card" 
-            onClick={() => handleProductClick(item._id)}
+            onClick={() => handleProductClick(item)}
             style={{ cursor: 'pointer' }}
           >
             <div className="favorite_card__image_container">
@@ -69,7 +104,7 @@ const PersonalInformation = () => {
                   className="favorite_card__add_btn"
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleProductClick(item._id);
+                    handleProductClick(item);
                   }}
                 >
                   ADD TO CART
@@ -80,6 +115,31 @@ const PersonalInformation = () => {
           </div>
         ))}
       </div>
+
+      {/* Modals for Ordering */}
+      <ProductModal
+        isOpen={isProductModalOpen}
+        product={selectedProduct}
+        onClose={() => setIsProductModalOpen(false)}
+        onAddToCart={handleProductAddedToCart}
+      />
+
+      <CartModal
+        isOpen={isCartModalOpen}
+        cartData={cartData}
+        onClose={() => setIsCartModalOpen(false)}
+        onProceed={handleProceedToCheckout}
+      />
+
+      <OrderModal
+        isOpen={isOrderModalOpen}
+        orderDetails={orderDetails}
+        onClose={() => setIsOrderModalOpen(false)}
+        onBack={() => {
+          setIsOrderModalOpen(false);
+          setIsCartModalOpen(true);
+        }}
+      />
     </div>
   );
 };

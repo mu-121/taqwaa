@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 20px 0;
+  padding: clamp(10px, 2vh, 20px) 0;
   background: transparent;
 }
 
@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: clamp(50px, 8vh, 80px);
 }
 
 .nav-section {
@@ -188,9 +188,26 @@
 {
   .navbar-logo
   {
-    width:44px !important;
-    height: 49px !important;
-    margin-left: 50px !important;
+    width:clamp(35px, 12vw, 44px) !important;
+    height: auto !important;
+    margin-left: 0 !important;
+  }
+}
 
+/* Height-based Navbar adjustments */
+@media (max-height: 600px) {
+  .navbar-container {
+    padding: 10px 0;
+  }
+  .navbar-inner {
+    height: 50px;
+  }
+  .navbar-logo {
+    height: 40px !important;
+    width: auto !important;
+  }
+  .nav-btn-white {
+    padding: 6px 20px;
+    font-size: 14px;
   }
 }

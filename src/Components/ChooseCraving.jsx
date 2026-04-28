@@ -1,41 +1,39 @@
 import React, { useEffect, useState } from "react";
 import "./ChooseCraving.css";
-import { fetchCategories } from "../services/api";
+import { fetchCategories, fetchFavorites } from "../services/api";
 import { Link, useSearchParams } from "react-router-dom";
 
-const ChooseCraving = () => {
+const ChooseCraving = ({ onCategoryChange, activeCategory }) => {
   const [categories, setCategories] = useState([]);
-  const [searchParams] = useSearchParams();
-  const currentCategory = searchParams.get("category");
-
-  // Persist category selection
-  const [lastSelectedCategory, setLastSelectedCategory] = useState(
-    localStorage.getItem("lastCategory") || "PIZZAS",
-  );
 
   useEffect(() => {
     const getCategories = async () => {
       try {
         const data = await fetchCategories();
-        // Filter out HOT DEALS if you don't want them in the selection row
         const filteredCategories = data.filter(
           (cat) => cat.name !== "HOT DEALS",
         );
+
+        // Move PIZZAS to the front
+        const pizzaIndex = filteredCategories.findIndex(cat => cat.name.toUpperCase() === "PIZZAS" || cat.name.toUpperCase() === "PIZZA");
+        if (pizzaIndex > -1) {
+          const pizzaCat = filteredCategories.splice(pizzaIndex, 1)[0];
+          filteredCategories.unshift(pizzaCat);
+        }
+
         setCategories(filteredCategories);
+
+        // Optional: Initialize parent state if it's empty
+        if (!activeCategory && filteredCategories.length > 0) {
+          const firstCat = filteredCategories[0].name;
+          onCategoryChange(firstCat);
+        }
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
     getCategories();
-  }, []);
-
-  // Sync localStorage if currentCategory changes (e.g. from URL in menu page)
-  useEffect(() => {
-    if (currentCategory) {
-      localStorage.setItem("lastCategory", currentCategory);
-      setLastSelectedCategory(currentCategory);
-    }
-  }, [currentCategory]);
+  }, [activeCategory, onCategoryChange]);
 
   const getCategoryImage = (name) => {
     const upperName = name.toUpperCase();
@@ -59,8 +57,7 @@ const ChooseCraving = () => {
 
       <div className="choose_craving__options_container">
         {categories.map((cat, index) => {
-          const isActive =
-            (currentCategory || lastSelectedCategory) === cat.name;
+          const isActive = activeCategory === cat.name;
 
           const sizeStyle =
             index === 0
@@ -70,14 +67,12 @@ const ChooseCraving = () => {
                 : { width: "80px", height: "80px" }; // others
 
           return (
-            <Link
-              to={`/menu?category=${cat.name}`}
-              className="choose_craving__option"
+            <div
+              className={`choose_craving__option ${isActive ? "active-tab" : ""}`}
               key={cat._id}
-              style={{ textDecoration: "none" }}
               onClick={() => {
                 localStorage.setItem("lastCategory", cat.name);
-                setLastSelectedCategory(cat.name);
+                onCategoryChange(cat.name);
               }}
             >
               <div
@@ -95,7 +90,7 @@ const ChooseCraving = () => {
               <p className="choose_craving__option_label">
                 {cat.name.charAt(0) + cat.name.slice(1).toLowerCase()}
               </p>
-            </Link>
+            </div>
           );
         })}
       </div>

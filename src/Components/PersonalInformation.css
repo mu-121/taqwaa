@@ -43,8 +43,8 @@
   padding: 18px 50px;
   border-radius: 100px;
   background: #ffffff;
-border: 0.53px solid #441803;
-box-shadow: 2.65px 2.12px 0px 0px #441803;
+border: 1px solid #441803;
+box-shadow: 5px 4px 0px 0px #441803;
 
 
   font-family: "Beach Day", sans-serif;
@@ -232,6 +232,10 @@ box-shadow: 2.65px 2.12px 0px 0px #441803;
     font-size: 10px;
     white-space: nowrap;
     height: 32px;
+    border: 0.53px solid #441803;
+    box-shadow: 2.65px 2.12px 0px 0px #441803;
+
+
   }
 
   .personal_information__main_container {

@@ -30,20 +30,21 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
       setIsSubmitting(true);
 
       const payload = {
-        customerInfo: { name, phone, address },
+        customerInfo: { name: name || "", phone: phone || "", address: address || "" },
         items: [
           {
             productId: product._id || product.id,
             name: product.name,
+            category: product.category || "General",
             quantity,
             price: totalItemPrice / quantity,
-            style: style?.label,
-            drink: drink?.name
+            style: style?.label || null,
+            drink: drink?.name || null
           }
         ],
         totalAmount: totalItemPrice,
         paymentMethod: selectedPayment,
-        notes
+        notes: notes || ""
       };
 
       const response = await placeOrder(payload);

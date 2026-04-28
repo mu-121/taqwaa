@@ -11,6 +11,9 @@ import Footer from '../Components/Footer';
 
 const Main = () => {
   const heroRef = useRef(null);
+  const [selectedCategory, setSelectedCategory] = useState(
+    localStorage.getItem("lastCategory") || "PIZZAS"
+  );
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -127,8 +130,8 @@ const Main = () => {
 
 
 
-      <ChooseCraving />
-      <PersonalInformation />
+      <ChooseCraving onCategoryChange={setSelectedCategory} activeCategory={selectedCategory} />
+      <PersonalInformation category={selectedCategory} />
       <HotDeals />
       <Subscribe />
       <Footer />
