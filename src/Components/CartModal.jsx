@@ -12,8 +12,8 @@ const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
     address: ''
   });
 
-  const basePrice = parseInt(style.price.replace(',', '')) || 0;
-  const drinkPrice = parseInt(drink.price.replace(',', '')) || 0;
+  const basePrice = parseInt(style.price?.replace(',', '') || '0') || 0;
+  const drinkPrice = drink ? (parseInt(drink.price?.replace(',', '') || '0') || 0) : 0;
   const totalItemPrice = (basePrice + drinkPrice) * quantity;
 
   const handleInputChange = (e) => {

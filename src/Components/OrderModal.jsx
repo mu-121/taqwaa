@@ -39,7 +39,7 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
             quantity,
             price: totalItemPrice / quantity,
             style: style?.label || null,
-            drink: drink?.name || null
+            drink: drink?.label || null
           }
         ],
         totalAmount: totalItemPrice,
@@ -54,7 +54,7 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
 
       const messageContent = `🍕 *New Order from ${name}!*\n\n` +
         `📋 *Order ID:* #${shortId}\n` +
-        `🛒 *Items:* ${quantity}x ${product.name} ${style?.label ? `(${style.label})` : ''}\n` +
+        `🛒 *Items:* ${quantity}x ${product.name} ${style?.label ? `(${style.label})` : ''}${drink?.label ? ` + ${drink.label}` : ''}\n` +
         `💰 *Total:* Rs. ${totalItemPrice.toLocaleString()}\n` +
         `📍 *Address:* ${address}\n` +
         `📞 *Phone:* ${phone}\n` +
