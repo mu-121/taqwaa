@@ -504,7 +504,7 @@
     width: 67px !important;
     height:90px !important;
 
-    top: 12%;
+    top: 14%;
   }
 
   .floating-chili {
@@ -515,7 +515,7 @@
 
   .explore-btn {
     font-size: 11px;
-    padding: 9px 0px;
+    padding: 3px 0px;
     width: auto !important;
     width:121px !important;
     border: 0.53px solid #441803;
@@ -528,7 +528,7 @@
     gap: 40px;
   }
   .hero-sticky-content {
-    height: 60vh !important;
+    height: 55vh !important;
   }
   .fade-gradient-left, .fade-gradient-right
   {
@@ -580,7 +580,7 @@
     height: 150px !important;
   }
   .explore-btn {
-    padding: 6px 16px;
+    padding: 3px 16px;
     font-size: 0.8rem;
   }
   .floating-leaf,
