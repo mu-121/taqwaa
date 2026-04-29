@@ -175,9 +175,9 @@
 .hero-container {
   min-height: 100vh;
   background-image: url("/Images/HeroSection/h1.png");
-     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -374,7 +374,6 @@
   color: #441803;
   font-family: "Beach Day", "Impact", fantasy, sans-serif;
   font-size: 20px;
-  letter-spacing: 2.5px;
   padding: clamp(12px, 2vh, 18px) clamp(30px, 5vw, 50px);
   border-radius: 50px;
   font-weight: 800;
@@ -432,7 +431,7 @@
   .main-pizza {
     width: 600px;
     /* height: unset; */
-    height:450px;
+    height: 450px;
     object-fit: cover;
   }
 
@@ -478,7 +477,7 @@
   }
   .bg-text {
     font-size: clamp(3rem, 12vh, 4.5rem);
-    -webkit-text-stroke: 4px #fcc802;
+    -webkit-text-stroke: 1px #fcc802;
     text-shadow: 0px 4px 0px #441803;
   }
 
@@ -488,8 +487,8 @@
   }
 
   .main-pizza {
-     height:250px !important;
-     object-fit: cover;
+    height: 250px !important;
+    object-fit: cover;
   }
 
   .hand-wrapper {
@@ -502,19 +501,27 @@
   }
 
   .floating-leaf {
-    width: clamp(40px, 10vw, 60px) !important;
-    top: 15%;
+    width: 67px !important;
+    height:90px !important;
+
+    top: 12%;
   }
 
   .floating-chili {
-    width: clamp(50px, 12vw, 70px) !important;
-    top: 65%;
+    width: 61px !important;
+    height:100px !important;
+    top: 58%;
   }
 
   .explore-btn {
     font-size: 11px;
-    padding: 9px 24px;
+    padding: 9px 0px;
     width: auto !important;
+    width:121px !important;
+    border: 0.53px solid #441803;
+    box-shadow: 2.65px 2.12px 0px 0px #441803;
+    letter-spacing: 3%;
+
   }
 
   .main-container1111 {
@@ -522,6 +529,15 @@
   }
   .hero-sticky-content {
     height: 60vh !important;
+  }
+  .fade-gradient-left, .fade-gradient-right
+  {
+     display:none
+  }
+  
+  .bg-text-container
+  {
+    top:39%
   }
 }
 
@@ -541,7 +557,7 @@
     height: 350px !important;
   }
   .hand-img {
-        height: 48vh !important;
+    height: 48vh !important;
   }
   .action-container {
     margin-bottom: 2vh;

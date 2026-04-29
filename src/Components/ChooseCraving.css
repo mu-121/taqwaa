@@ -97,13 +97,12 @@
     font-size:26px;
   }
   .choose_craving__options_container {
-    gap: 15px;
+    gap: 0px;
     padding: 10px;
-    z-index: -1;
   }
   .choose_craving__option_label {
     font-size: 10px;
-    height:16px
+    height:16px;
   }
   .choose_craving__main_container {
     gap: 20px;
@@ -116,9 +115,11 @@
     width: 34px !important;
     height: 34px !important;
   }
-  .choose_craving__option
-  {
+  .choose_craving__option {
     max-width: 48px !important;
+    z-index: 1;
+    position: relative;
+    padding: 8px;
   }
 }
 
