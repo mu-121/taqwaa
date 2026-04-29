@@ -98,7 +98,7 @@
   }
   .choose_craving__options_container {
     gap: 0px;
-    padding: 10px;
+    padding:  0px 10px;
   }
   .choose_craving__option_label {
     font-size: 10px;
