@@ -175,9 +175,9 @@
 .hero-container {
   min-height: 100vh;
   background-image: url("/Images/HeroSection/h1.png");
-  background-size: contain;
-  background-color: #fccb10;
-  background-position: center;
+     background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -431,7 +431,9 @@
 @media (max-width: 1200px) {
   .main-pizza {
     width: 600px;
-    height: unset;
+    /* height: unset; */
+    height:450px;
+    object-fit: cover;
   }
 
   .hand-wrapper {
@@ -486,7 +488,8 @@
   }
 
   .main-pizza {
-    height: clamp(220px, 40vh, 280px);
+     height:250px !important;
+     object-fit: cover;
   }
 
   .hand-wrapper {
