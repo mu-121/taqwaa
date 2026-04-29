@@ -45,17 +45,19 @@
 }
 
 .cart_modal__item_card {
-  border: 4px solid #441803;
-  box-shadow: 5px 4px 0px 0px #441803;
+border: 4px solid #441803;
+box-shadow: 5px 4px 0px 0px #441803;
+
 
   border-radius: 44px;
-  padding: 15px;
+  padding: 0px 27px 0px 20px;
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 25px;
   position: relative;
   background: white !important;
+  min-height: 172px;
 }
 
 .cart_modal__item_image_container {
@@ -112,7 +114,7 @@
 
 .cart_modal__quantity_selector {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 8px;
 }
 
@@ -166,10 +168,11 @@
 
 .cart_modal__input {
   border: 2px solid #441803;
-  box-shadow: 5px 4px 0px 0px #441803;
+box-shadow: 2px 2px 0px 0px #441803;
 
-  border-radius: 24px;
-  padding: 12px 25px;
+
+  border-radius: 20px;
+  padding: 16px 25px;
   font-family: "Wild", sans-serif;
   font-size: 16px;
   color: #441803;
@@ -203,10 +206,13 @@
 
 .cart_modal__highlight_text {
   color: #fccb10;
-  -webkit-text-stroke: 1.5px #441803;
-  text-shadow: 2px 2px 0px #441803;
+  -webkit-text-stroke: 0.48px #441803;
+  text-shadow: 1.2px 1.2px 0px #441803;
 }
 .cart_modal__item_price_val {
+    color: #fccb10;
+  -webkit-text-stroke: 0.88px #441803;
+  text-shadow: 2.4px 2.4px 0px #441803;
 }
 
 .cart_modal__divider {
@@ -233,12 +239,15 @@
   font-family: "Beach Day", sans-serif;
   font-size: 20px;
   color: #fccb10;
-  -webkit-text-stroke: 1.5px #441803;
-  text-shadow: 2px 2px 0px #441803;
+  -webkit-text-stroke: 0.61px #441803;
+  text-shadow: 1.52px 1.52px 0px #441803;
 }
 
 .cart_modal__due_amount_val {
   font-size: 34px;
+    color: #fccb10;
+  -webkit-text-stroke: 1.1px #441803;
+  text-shadow: 3.03px 3.03px 0px #441803;
 }
 
 .cart_modal__footer {
@@ -259,7 +268,6 @@
   border-radius: 40px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 7.5px 6px 0px 0px #441803;
   transition: all 0.1s ease;
   width: 100%;
 }
@@ -277,7 +285,6 @@
     max-width: 320px;
     border: 3.17px solid #441803;
     box-shadow: 3.96px 3.17px 0px 0px #441803;
-
   }
 
   .cart_modal__main_title {
@@ -299,19 +306,13 @@
     font-size: 20px;
   }
 }
-@media(max-width:400px)
-{
-
+@media (max-width: 400px) {
   .cart_modal__container {
- 
-    width:80%
+    width: 80%;
   }
 }
-@media(max-width:350px)
-{
-
+@media (max-width: 350px) {
   .cart_modal__container {
-  
     max-width: 250px;
   }
 }

@@ -44,7 +44,11 @@ const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
           </div>
           <div className="cart_modal__item_details">
             <h3 className="cart_modal__item_name">{product.name}</h3>
-            {style.label && <p className="cart_modal__item_style">{style.label}</p>}
+           {style.label && (
+  <p className="cart_modal__item_style">
+    {style.label.charAt(0).toUpperCase() + style.label.slice(1).toLowerCase()}
+  </p>
+)}
             <div className="cart_modal__item_price">
               Rs. <span className="cart_modal__item_price_val">{style.price}</span>
             </div>
