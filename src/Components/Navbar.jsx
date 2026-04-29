@@ -42,9 +42,7 @@ const Navbar = () => {
             aria-label="Toggle Navigation"
             aria-expanded={isMenuOpen}
           >
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
+            <img src="/Images/burger.svg" alt="Menu" className="hamburger-icon" />
           </button>
         </div>
       </div>

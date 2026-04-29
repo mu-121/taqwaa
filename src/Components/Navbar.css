@@ -69,18 +69,15 @@
 
   /* Hamburger Button */
   .hamburger-btn {
-    background: white;
-    border: 2px solid #441803;
-    width: 44px;
-    height: 30px;
-    border-radius: 58px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
+    background: none;
+    border: none;
+    padding: 0;
     cursor: pointer;
-    box-shadow: 3px 3px 0px #441803;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2.91px 2.33px 0px 0px #441803;
+    border-radius: 58px;
     transition: all 0.2s ease;
   }
   .hamburger-btn:active {
@@ -88,12 +85,10 @@
     transform: translate(2px, 2px);
   }
 
-  .hamburger-line {
-    width: 20px;
-    height: 2px;
-    background-color: #441803;
-    border-radius: 2px;
-    transition: none;
+  .hamburger-icon {
+    display: block;
+    width: 40px;
+    height: auto;
   }
 }
 
