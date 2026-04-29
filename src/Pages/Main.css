@@ -190,7 +190,7 @@
 
 @media (max-width: 600px) {
   .hero-container {
-    height: 568px !important;
+    height: 468px !important;
     background-image: url("/Images/HeroSection/heroSmall.png");
     background-size: cover;
     min-height: unset;
@@ -521,7 +521,7 @@
     gap: 40px;
   }
   .hero-sticky-content {
-    height: 70vh !important;
+    height: 60vh !important;
   }
 }
 
