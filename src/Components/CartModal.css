@@ -325,6 +325,12 @@ box-shadow: 2px 2px 0px 0px #441803;
   {
     font-size: 18px;
   }
+  .cart_modal__input
+  {
+    border: 1.06px solid #441803;
+    box-shadow: 2.64px 2.11px 0px 0px #441803;
+
+  }
 }
 @media (max-width: 400px) {
   .cart_modal__container {
