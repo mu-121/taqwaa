@@ -278,7 +278,7 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
   }
   .hot_deals__heading {
     font-size: 50px;
-    -webkit-text-stroke: 1px #fcc802;
+    -webkit-text-stroke: 0.5px #fcc802;
   }
   .deal_card {
     padding: 25px;
@@ -317,6 +317,7 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
     transform: none;
     margin-top:0px;
     max-width: unset;
+    margin-left:15px
 
   }
   .deal_card__info {
@@ -354,11 +355,12 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
 @media (max-width: 480px) {
   .hot_deals__heading {
     font-size: 26px;
+      text-shadow: 0px 4px 0px #441803;
   }
   .deal_card {
     padding: 20px;
     width:340px;
-    height:340px;
+    height:304px;
     border: 2.39px solid #441803;
     box-shadow: 2.98px 2.39px 0px 0px #441803;
 

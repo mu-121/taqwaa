@@ -192,7 +192,7 @@ box-shadow: 5px 4px 0px 0px #441803;
     gap: 40px;
   }
   .personal_information__header {
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
   }
   .personal_information__grid {
@@ -241,6 +241,7 @@ box-shadow: 5px 4px 0px 0px #441803;
 
   .personal_information__main_container {
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   .favorite_card__description {
     font-size: 10px;
