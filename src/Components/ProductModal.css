@@ -232,14 +232,48 @@ box-shadow: 7.5px 6px 0px 0px #441803;
   
   .product_modal__image {
     max-width: 100%;
+    height:220px;
+    width:220px;
+    margin-right: 30px;
   }
 
   .product_modal__title {
-    font-size: 28px;
+    font-size: 20px;
   }
-
+  .product_modal__description
+  {
+    font-size: 10px;
+  }
+  .product_modal__info_section
+  {
+    gap:15px
+  }
+  .product_modal__label
+  {
+    font-size: 12px;
+  }
+  .product_modal__price_row
+  {
+    padding:0px;
+    margin:0px 
+  }
+  .product_modal__selection_group
+  {
+    margin-top: 0px;
+    gap:5px
+  }
+.product_modal__starting_price
+{
+  -webkit-text-stroke: 0.37px #441803;
+    text-shadow: 0.93px 0.93px 0px #441803;
+}
+.product_modal__starting_price1
+{
+  -webkit-text-stroke: 0.68px #441803;
+    text-shadow: 1.87px 1.97px 0px #441803;
+}
   .product_modal__group_title {
-    font-size: 24px;
+    font-size: 15.86px;
   }
 
   .product_modal__starting_price1 {
@@ -247,22 +281,48 @@ box-shadow: 7.5px 6px 0px 0px #441803;
   }
 
   .product_modal__option_label {
-    font-size: 18px;
+    font-size: 12px;
   }
 
   .product_modal__option_price11 {
     font-size: 20px;
   }
+  .product_modal__option
+  {
+    padding-left: 20px;
+  }
 
   .product_modal__add_btn {
     padding: 12px 20px;
-    font-size: 20px;
+    font-size: 12.69px;
+    border: 0.79px solid #441803;
+    box-shadow: 3.96px 3.17px 0px 0px #441803;
+
   }
 
   .product_modal__close {
     top: 15px;
     right: 15px;
     font-size: 28px;
+  }
+    .product_modal__radio_custom
+  {
+    height: 12px;
+    width:12px
+  }
+  .product_modal__option_price
+  {
+    -webkit-text-stroke: 0.26px #441803;
+    text-shadow: 0.64px 0.64px 0px #441803;
+  }
+  .product_modal__option_price11
+  {
+      -webkit-text-stroke: 0.47px #441803;
+    text-shadow: 1.28px 1.28px 0px #441803;
+  }
+  .product_modal__footer
+  {
+    margin-top: 0px;
   }
 }
 
@@ -280,13 +340,12 @@ box-shadow: 7.5px 6px 0px 0px #441803;
     font-size: 28px;
   }
 
-  .product_modal__group_title {
-    font-size: 20px;
-  }
+
 
   .product_modal__option_label {
     font-size: 16px;
   }
+
 }
 @media(max-width:350px)
 {

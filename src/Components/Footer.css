@@ -11,7 +11,6 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-
 }
 
 /* Checkerboard Strip */
@@ -66,7 +65,6 @@
   text-transform: uppercase;
   max-width: 718px;
   -webkit-text-stroke: 1.07px #FCC802;
-
   text-shadow:
     2.94px 2.94px 0px #441803,
     0px 4px 0px #441803;
@@ -93,7 +91,6 @@
   align-items: center;
   text-align: center;
   box-shadow: 5px 4px 0px 0px #441803;
-
   transition: all 0.2s ease;
 }
 
@@ -117,71 +114,91 @@
 
 .footer__watermark {
   position: absolute;
-  bottom: 63px;
   width: 100%;
   text-align: center;
-
   font-family: "Beach Day", sans-serif;
   font-size: 15.5vw;
   line-height: 1;
-  margin: 0;
-  padding: 0;
-
   opacity: 0.15;
   white-space: nowrap;
-  pointer-events: auto;
   z-index: 1;
-  transition: opacity 0.5s ease-in-out, color 0.3s ease-in-out;
-
   text-transform: uppercase;
   letter-spacing: 5px;
-
-  /* Stroke + text shadow */
   -webkit-text-stroke: 1.07px #FCC802;
   text-shadow:
     2.94px 2.94px 0px #441803,
     0px 4px 0px #441803;
-
   color: #441803;
   top: 77%;
-  right:2%
+  right: 2%;
 }
 
 .footer__watermark:hover {
   opacity: 1;
 }
 
-@media(min-width:1500px) {
+@media (min-width: 1500px) {
   .footer__watermark {
-    top: 69%
+    top: 69%;
   }
 }
 
-/* Responsive */
+/* ================= MOBILE & TABLET ================= */
+
 @media (max-width: 1024px) {
   .footer__heading {
     font-size: 42px;
   }
 
-  .footer__watermark {
-    /* Removed font-size to use base vw size */
-  }
-
   .footer__section {
     background-image: url("/Images/HeroSection/he11.png") !important;
+    background-size: 100% 100%;
   }
-
 }
 
 @media (max-width: 768px) {
   .footer__section {
-    padding: 80px 20px;
+    padding: 90px 16px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__content {
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    margin-right: 36px;
+  }
+
+  .footer__logo_wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer__illustration {
+    margin: 0 auto;
+    width: 140px;
   }
 
   .footer__heading {
     font-size: 30px;
+    max-width: 100%;
+    line-height: 120%;
     -webkit-text-stroke: 0;
     text-shadow: none;
+  }
+
+  .footer__actions {
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+    margin-top: 4px;
+  }
+
+  .footer__pill {
+    width: 100%;
+    max-width: 320px;
   }
 
   .contact_pill {
@@ -192,35 +209,46 @@
   .address_pill {
     font-size: 12px;
     padding: 12px 25px;
-
-  }
-
-  .footer__watermark {
-    /* Removed font-size to use base vw size */
+    line-height: 1.2;
   }
 }
 
-@media(max-width:480px) {
-
+@media (max-width: 480px) {
   .footer__watermark {
-    font-size: 12vw;
+    font-size: 60px;
     top: auto;
     bottom: 20px;
+    margin-right: 5px;
   }
 
   .contact_pill {
-    font-size: 11px;
+    font-size: 11.5px;
+    width:175px;
+    border: 0.56px solid #441803;
+    box-shadow: 2.79px 2.23px 0px 0px #441803;
+    letter-spacing: 3%;
+    padding: 4px 0px
+
   }
 
   .address_pill {
     font-size: 11px;
-    max-width: 253px;
+    max-width: 277px;
     line-height: 100%;
+    border: 0.62px solid #441803;
+    box-shadow: 3.09px 2.47px 0px 0px #441803;
+    letter-spacing: 3%;
+
   }
 
   .footer__actions {
     margin-bottom: 20px;
   }
-
-
+}
+@media(max-width:400px)
+{
+  .footer__watermark
+  {
+    font-size:40px
+  }
 }

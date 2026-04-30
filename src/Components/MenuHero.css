@@ -111,18 +111,23 @@ box-shadow: 5px 4px 0px 0px #441803;
  .menu_hero__title
  {
   font-size: 43px;
-  -webkit-text-stroke: 0.7px #FCC802
+  -webkit-text-stroke: 0.7px #FCC802;
+  text-shadow: 0px 2px 0px #441803
  }
 
  .menu_hero__subtitle
   {
     font-size: 12px;
+    padding-top: 0px;
   }
   .menu_hero__download_btn
   {
     font-size: 10px;
     border: 0.53px solid #441803;
     box-shadow: 2.65px 2.12px 0px 0px #441803;
+    margin-top: 5px;
+    padding:9px 30px;
+    letter-spacing: 3%;
 
   }
   .category_filter__btn

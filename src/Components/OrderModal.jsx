@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import './OrderModal.css';
 import { placeOrder } from '../services/api';
-
+import './ProductModal.css'
 const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
   // ✅ ALL hooks first
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -166,7 +166,7 @@ const OrderModal = ({ isOpen, orderDetails, onClose, onBack }) => {
 
         <div className="order_modal__footer">
           <button 
-            className="order_modal__place_order_btn" 
+           className="product_modal__add_btn"
             onClick={handlePlaceOrder}
             disabled={isSubmitting}
           >

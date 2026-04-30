@@ -249,7 +249,7 @@ box-shadow: 2px 2px 0px 0px #441803;
   }
 
   .order_modal__section_title {
-    font-size: 24px;
+    font-size: 19px;
   }
   .order_modal__payment_label {
     font-size: 16px;
@@ -262,6 +262,64 @@ box-shadow: 2px 2px 0px 0px #441803;
   }
   .order_modal__place_order_btn {
     font-size: 20px;
+  }
+  .order_modal__textarea
+  {
+    border: 1.06px solid #441803;
+    box-shadow: 2.64px 2.11px 0px 0px #441803;
+font-size: 9px;
+  }
+  .order_modal__section_subtitle
+  {
+    font-size: 10px;
+  }
+  .order_modal__radio_custom
+  {
+    height: 12px;
+    width:12px
+  }
+  .order_modal__payment_option
+  {
+    padding-left: 20px;
+  }
+  .order_modal__payment_icon
+  {
+    height: 25px;
+    width:25px
+  }
+  .order_modal__delivery_time
+  {
+    font-size: 10px;
+  }
+  .order_modal__summary_row
+  {
+    font-size: 12px;
+  }
+  .order_modal__price_val
+  {
+    font-size: 18px;
+    -webkit-text-stroke: 0.47px #441803;
+    text-shadow: 1.26px 1.28px 0px #441803;
+  }
+  .order_modal__price
+  {
+    -webkit-text-stroke: 0.26px #441803;
+    text-shadow: 0.64px 0.64px 0px #441803;
+  }
+  .order_modal__due_amount
+  {
+     -webkit-text-stroke: 0.26px #441803;
+    text-shadow: 0.64px 0.64px 0px #441803;
+    font-size: 11px;
+  }
+  .order_modal__due_amount_val
+  {
+       -webkit-text-stroke: 0.47px #441803;
+    text-shadow: 1.26px 1.28px 0px #441803;
+  }
+  .order_modal__section_group
+  {
+    margin-bottom: 15px;
   }
 }
 @media(max-width: 400px)

@@ -366,7 +366,7 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
 
   }
   .deal_card__title {
-    font-size: 21px;
+    font-size: 21.94px;
     white-space: nowrap;
     text-align: left;
     margin:0px !important;
@@ -378,12 +378,12 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
   }
   .hot_deals__content_wrapper
   {
-    margin-top: 50px;
+    margin-top: 5px;
     gap:30px
   }
   .deal_card__details
   {
-    margin:0px !important
+    margin-top:11px !important
   }
   .deal_card__details li
   {
@@ -394,7 +394,8 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
  .deal_card__amount
  {
   font-size: 33px;
-   -webkit-text-stroke: 0.67px #441803;
+   -webkit-text-stroke: 0.64px #441803;
+   text-shadow: 1.76px 1.76px 0px #441803;
  }
  .deal_card__price_container
  {
@@ -407,9 +408,17 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
  }
  .deal_card__add_btn
  {
-  font-size: 9.5px;
+  font-size: 10px;
   margin-right: 85px;
   white-space: nowrap;
+  height:24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.6px solid #441803;
+  box-shadow: 2.98px 2.39px 0px 0px #441803;
+  padding:10px 18px
+
  }
   
 }

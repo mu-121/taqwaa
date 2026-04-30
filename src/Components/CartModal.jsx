@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './CartModal.css';
-
+import './ProductModal.css'
 const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
   if (!isOpen || !cartData) return null;
 
@@ -129,7 +129,7 @@ const CartModal = ({ isOpen, cartData, onClose, onProceed }) => {
         </div>
 
         <div className="cart_modal__footer">
-          <button className="cart_modal__proceed_btn" onClick={handleProceed}>
+          <button className="product_modal__add_btn" onClick={handleProceed}>
             PROCEED
           </button>
         </div>

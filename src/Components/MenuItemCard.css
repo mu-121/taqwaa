@@ -149,8 +149,8 @@ width:390px;
   font-family: "Beach Day", "Impact", fantasy, sans-serif;
   font-size: 24px;
   color: #fcc802;
-  -webkit-text-stroke: 0.5px #441803;
-  text-shadow: 2.35px 2.35px 0px #441803;
+  -webkit-text-stroke: 0.47px #441803;
+  text-shadow: 1.18px 1.18px 0px #441803;
 }
 
 .menu_item__price_val {
@@ -164,7 +164,10 @@ width:390px;
   .menu_item__card {
     padding: 16px;
     border-radius: 30px;
-    min-height:370px
+    min-height:370px;border: 3.7px solid #441803;
+    box-shadow: 4.63px 3.7px 0px 0px #441803;
+border-radius: 55px;
+
   }
   .menu_item__image
 
@@ -175,6 +178,8 @@ width:390px;
   .menu_item__image_container
   {
     height: unset;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
   .menu_item__name {
     font-size: 1.2rem;
@@ -184,7 +189,16 @@ width:390px;
   }
   .menu_item__footer
   {
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+  }
+  .menu_item__price_val
+  {
+      -webkit-text-stroke: 0.76px #441803;
+  text-shadow: 2.1px 2.1px 0px #441803;
+  }
+  .menu_item__info
+  {
+    margin-top: 0px;
   }
   
 }

@@ -63,6 +63,10 @@ box-shadow: 5px 4px 0px 0px #441803;
     padding: 6px 15px;
     font-size: 0.8rem;
   }
+  .category_filter__container 
+  {
+    padding:10px 14px 20px
+  }
 }
 @media(max-width: 480px) {
   .category_filter__btn {
