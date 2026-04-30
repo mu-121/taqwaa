@@ -104,6 +104,23 @@
   justify-content: center;
   align-items: center;
   background-color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.subscribe__socials_group22:hover {
+  transform: translateY(-3px);
+  box-shadow: 7px 6px 0px 0px #441803;
+  background-color: #fccb10;
+}
+
+.subscribe__socials_group22:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-icon {
+  transition: transform 0.2s ease;
 }
 /* Responsive */
 @media (max-width: 1024px) {

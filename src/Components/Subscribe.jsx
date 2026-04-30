@@ -22,30 +22,43 @@ const Subscribe = () => {
             </p>
 
             <div className="subscribe__socials">
-              <div className="subscribe__socials_group22">
+              <a
+              href="https://www.instagram.com/taqwafoodsofficial?igsh=bnVpODY4azlydHc3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="subscribe__socials_group22"
+              >
                 <img
-           
                   src="/Images/HeroSection/f.svg"
                   alt="Facebook"
                   className="social-icon"
                 />
-              </div>
-              <div className="subscribe__socials_group22">
+              </a>
+              <a
+                href="https://www.instagram.com/taqwafoodsofficial?igsh=bnVpODY4azlydHc3"
+                 href="https://www.facebook.com/share/18NCL54DBs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="subscribe__socials_group22"
+              >
                 <img
-                 
                   src="/Images/HeroSection/i.svg"
                   alt="Instagram"
                   className="social-icon"
                 />
-              </div>
-              <div className="subscribe__socials_group22">
+              </a>
+              <a
+                href="https://www.tiktok.com/@taqwa.food95?_r=1&_t=ZS-95w1IOEf5M8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="subscribe__socials_group22"
+              >
                 <img
-         
                   src="/Images/HeroSection/t.svg"
                   alt="TikTok"
                   className="social-icon"
                 />
-              </div>
+              </a>
             </div>
           </div>
         </div>

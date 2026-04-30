@@ -331,10 +331,10 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
   }
   .deal_card__details li {
     text-align: center;
-    padding-left: 0;
+    padding-left: 16px;
   }
   .deal_card__details li::before {
-    display: none;
+    display: block;
   }
   .deal_card__price_container {
     justify-content: center;
@@ -390,6 +390,10 @@ box-shadow: 2.98px 2.39px 0px 0px #441803;
     font-size: 8px;
     white-space: nowrap;
     text-align: left;
+    padding-left: 10px;
+  }
+  .deal_card__details li::before {
+    display: block;
   }
  .deal_card__amount
  {
