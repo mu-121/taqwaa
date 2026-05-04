@@ -472,7 +472,7 @@
   .hero-container {
     height: clamp(500px, 100vh, 700px);
     background-image: url("/Images/HeroSection/heroSmall.png");
-    background-size: cover;
+    background-size: 100% 100%;
     min-height: unset;
   }
   .bg-text {
